@@ -1,2 +1,12 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<h1>マイページ</h1>
+
+<% if user_signed_in? %>
+  <h4>メールアドレス：<%= current_user.email %></h4>
+  <h4>名前：<%= current_user.name %></h4>
+  
+  <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
+<% else %>
+  <h2> 現在ログインしていません </h2>
+  <%= link_to "ログイン", new_user_session_path, class: 'post' %> 
+  <%= link_to "新規登録", new_user_registration_path, class: 'post' %> 
+<% end %>
