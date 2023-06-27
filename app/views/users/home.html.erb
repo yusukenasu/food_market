@@ -2,15 +2,15 @@
 
 <% if user_signed_in? %>
   <div>
-    <% if current_user.image.present? %>
-      <%= image_tag current_user.image.variant(resize: "100x100") %>
+    <% if @user.image.present? %>
+      <%= image_tag @user.image.variant(resize: "100x100") %>
     <% else %>
       <%= image_tag 'user_img.png', size: "100x100" %>
     <% end %>
   </div>
-  <h4>名前：<%= current_user.name %></h4>
-  <h4>メールアドレス：<%= current_user.email %></h4>
-  <h4>プロフィール：<%= current_user.profile %></h4>
+  <h4>名前：<%= @user.name %></h4>
+  <h4>メールアドレス：<%= @user.email %></h4>
+  <h4>プロフィール：<%= @user.profile %></h4>
   <%= link_to "編集", edit_user_registration_path %> 
   <%= link_to "ログアウト", destroy_user_session_path, method: :delete %> 
   <%= link_to "プロフィール編集", users_edit_account_path, class: 'post' %> 
