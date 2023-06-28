@@ -1,6 +1,6 @@
 <h2>アカウント情報編集</h2>
 
-<%= form_with model: @user, url: users_account_update_path, method: :patch  do |f| %>
+<%= form_with model: @user, url: users_account_update_path, method: :patch do |f| %>
   
   <div class="field">
     <%= f.label :名前 %><br />
@@ -13,7 +13,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :アイコン画像 %><br />
+    <%= f.label :image, "アイコン画像" %><br />
     <%= f.file_field :image %>
   </div>
 
