@@ -40,4 +40,4 @@
 
 <div>アカウントを削除しますか? <%= button_to "削除", registration_path(resource_name), data: { confirm: "本当にアカウントを削除しますか?", turbo_confirm: "本当にアカウントを削除しますか?" }, method: :delete %></div>
 
-<%= link_to "戻る", :back %>
+<%= link_to "戻る", 'javascript:history.back()' %>
