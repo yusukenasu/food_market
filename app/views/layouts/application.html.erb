@@ -28,9 +28,10 @@
           </div>
         </div>
       <% else %>
-        <div>  
+        <div class="sign_up_in">  
           <div><%= link_to "新規登録", new_user_registration_path %></li>
           <div><%= link_to "ログイン", new_user_session_path %></li>
+          <div><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "login" %></div>
         </div>
       <% end %>
     </nav>
