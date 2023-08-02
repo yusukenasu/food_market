@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     mount LetterOpenerWeb::Engine, at: "/letter_opener" 
   end
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
     get 'users/guest_sign_in', to: 'users/sessions#new_guest'
