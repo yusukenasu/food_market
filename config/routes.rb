@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'users/home' ,to: 'users#home'
   get 'users/edit_account' ,to: 'users#edit_account'
   patch 'users/account_update' ,to: 'users#account_update'
+  resources :products
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
