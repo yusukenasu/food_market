@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_09_135654) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_12_104243) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -46,7 +46,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_09_135654) do
     t.string "category"
     t.string "description"
     t.integer "point_of_reasonability"
-    t.integer "point_of_uniqueness"
+    t.integer "point_of_impression"
     t.integer "point_of_taste"
     t.integer "point_of_repeatability"
     t.integer "point_of_design"

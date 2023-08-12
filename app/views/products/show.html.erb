@@ -18,6 +18,61 @@
   </tr>
 </table>
 
+<table border="1">
+  <tr>
+    <th>コスパ</th><td><%= @product.point_of_reasonability %></td>
+  </tr>
+  <tr>
+    <th>特徴的</th><td><%= @product.point_of_impression %></td>
+  </tr>
+  <tr>
+    <th>味</th><td><%= @product.point_of_taste %></td>
+  </tr>
+  <tr>
+    <th>リピート性</th><td><%= @product.point_of_repeatability %></td>
+  </tr>
+  <tr>
+    <th>デザイン性</th><td><%= @product.point_of_design %></td>
+  </tr>
+</table>
+
+<!--グラフの記述-->
+<canvas id="myChart"></canvas>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  var reasonability = gon.reasonability;
+  var impression = gon.impression;
+  var taste = gon.taste;
+  var repeatability = gon.repeatability;
+  var design = gon.design;
+  var ctx = document.getElementById('myChart');
+  var myChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: ['コスパ', '特徴的', '味', 'リピート性', 'デザイン性'],
+      datasets: [{
+          label: '# of Votes',
+          data: [reasonability, impression, taste, repeatability, design],
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        r: {
+          max: 5,
+          min: 0,
+          ticks: {
+            stepSize: 1
+          }
+        }
+      },
+    }
+});
+</script>
+<!--ここまで-->
+
 <%= link_to "編集", edit_product_path %>
 <%= link_to "商品一覧へ", products_path %>
 <%= link_to "戻る", 'javascript:history.back()' %>
