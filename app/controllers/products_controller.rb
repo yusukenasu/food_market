@@ -16,7 +16,7 @@ class ProductsController < ApplicationController
 
   def create
     @user = current_user
-    @product = Product.new(params.require(:product).permit(:name))
+    @product = Product.new(params.require(:product).permit(:name, :manufacturer, :price, :category, :description, :point_of_reasonability, :point_of_uniqueness, :point_of_taste, :point_of_repeatability, :point_of_design))
     if @product.save
       redirect_to products_path
     else

@@ -1,5 +1,22 @@
 <h1>商品詳細</h1>
-<p>商品名：<%= @product.name %></p>
+
+<table border="1">
+  <tr>
+    <th>商品名</th><td><%= @product.name %></td>
+  </tr>
+  <tr>
+    <th>製造メーカー</th><td><%= @product.manufacturer %></td>
+  </tr>
+  <tr>
+    <th>価格</th><td><%= @product.price %>円（税込）</td>
+  </tr>
+  <tr>
+    <th>カテゴリー</th><td><%= @product.category %></td>
+  </tr>
+  <tr>
+    <th>商品説明</th><td><%= @product.description %></td>
+  </tr>
+</table>
 
 <%= link_to "編集", edit_product_path %>
 <%= link_to "商品一覧へ", products_path %>
