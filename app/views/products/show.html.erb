@@ -1,43 +1,53 @@
 <h1>商品詳細</h1>
+<div class="product_image">
+  <% if @product.image.present? %>
+    <%= image_tag @product.image.variant(resize: "100x100") %>
+  <% else %>
+    <%= image_tag 'user_img.png', size: "100x100" %>
+  <% end %>
+</div>
+<div class="product_container">
+  <table class="product_detail" border="1">
+    <tr>
+      <th>商品名</th><td><%= @product.name %></td>
+    </tr>
+    <tr>
+      <th>製造メーカー</th><td><%= @product.manufacturer %></td>
+    </tr>
+    <tr>
+      <th>価格</th><td><%= @product.price %>円（税込）</td>
+    </tr>
+    <tr>
+      <th>カテゴリー</th><td><%= @product.category %></td>
+    </tr>
+    <tr>
+      <th>商品説明</th><td><%= @product.description %></td>
+    </tr>
+  </table>
 
-<table border="1">
-  <tr>
-    <th>商品名</th><td><%= @product.name %></td>
-  </tr>
-  <tr>
-    <th>製造メーカー</th><td><%= @product.manufacturer %></td>
-  </tr>
-  <tr>
-    <th>価格</th><td><%= @product.price %>円（税込）</td>
-  </tr>
-  <tr>
-    <th>カテゴリー</th><td><%= @product.category %></td>
-  </tr>
-  <tr>
-    <th>商品説明</th><td><%= @product.description %></td>
-  </tr>
-</table>
-
-<table border="1">
-  <tr>
-    <th>コスパ</th><td><%= @product.point_of_reasonability %></td>
-  </tr>
-  <tr>
-    <th>特徴的</th><td><%= @product.point_of_impression %></td>
-  </tr>
-  <tr>
-    <th>味</th><td><%= @product.point_of_taste %></td>
-  </tr>
-  <tr>
-    <th>リピート性</th><td><%= @product.point_of_repeatability %></td>
-  </tr>
-  <tr>
-    <th>デザイン性</th><td><%= @product.point_of_design %></td>
-  </tr>
-</table>
+  <table class="product_score" border="1">
+    <tr>
+      <th>コスパ</th><td><%= @product.point_of_reasonability %></td>
+    </tr>
+    <tr>
+      <th>特徴的</th><td><%= @product.point_of_impression %></td>
+    </tr>
+    <tr>
+      <th>味</th><td><%= @product.point_of_taste %></td>
+    </tr>
+    <tr>
+      <th>リピート性</th><td><%= @product.point_of_repeatability %></td>
+    </tr>
+    <tr>
+      <th>デザイン性</th><td><%= @product.point_of_design %></td>
+    </tr>
+  </table>
+</div>
 
 <!--グラフの記述-->
-<canvas id="myChart"></canvas>
+<div style="width:400px">
+  <canvas id="myChart"></canvas>
+</div>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   var reasonability = gon.reasonability;
