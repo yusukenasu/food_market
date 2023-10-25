@@ -1,8 +1,15 @@
-<% @items.first(5).each do |item| %>
-  <div class="list-group">
-   <div class="related_product_image"><%= image_tag (item['smallImageUrls'][0]) %><div>
-   <%= link_to item.name, "#{item.url}" %>
-   <%= number_with_delimiter(item.price) %>円
-  </div>
-<% end %>
-  
+<div class="item-container">
+  <% @items.first(5).each do |item| %>
+    <div class="related-items">
+      <div class="related-item-image">
+        <%= image_tag (item['smallImageUrls'][0]) %>
+      <div>
+      <div class="related-item-price">
+        <%= number_with_delimiter(item.price) %>円
+      </div>
+      <div class="related-item-name">
+        <%= link_to item.name, "#{item.url}" %>
+      </div>
+    </div>
+  <% end %>
+</div>  

@@ -53,7 +53,33 @@ body{
 }
 
 /*API関連*/
-.related_product_image{
-  width: 100px;
-  height: 100px;
+.item-container{
+  display: flex;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+/*FV関連*/
+.first_view_product_images_container{
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  margin: 50px auto;
+}
+
+.registration_container{
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.registration_new_product{
+  text-decoration-line: none;
+  text-decoration: none;
+  color: darkslategray;
+  font-size: 15pt;
+  background-color: tomato;
+  text-align: center;
+  padding: 20px;
+  border-radius: 50px;
 }

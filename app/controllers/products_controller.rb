@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   def index
     @user = current_user
     @products = Product.all
+    @random_products = Product.order("RANDOM()").limit(5)
   end
 
   def new
