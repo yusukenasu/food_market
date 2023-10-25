@@ -23,4 +23,14 @@
   <%= link_to "お気に入りの商品を登録する", new_product_path, class: "registration_new_product" %>
   </div>
   <!-- 不要？削除する<%= link_to "戻る", 'javascript:history.back()' %>-->
+  <div class="search_product_container">
+    商品を検索する
+  </div>
+
+  <!-- 関連づけテスト-->
+  <p>↓ログイン中のユーザーが登録した商品名↓</p></br>
+  <% @products.each do |product| %>
+    <%= product.name %>
+  <% end %>
+
 </div>

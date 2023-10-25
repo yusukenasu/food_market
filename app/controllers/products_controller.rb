@@ -3,6 +3,7 @@ class ProductsController < ApplicationController
     @user = current_user
     @products = Product.all
     @random_products = Product.order("RANDOM()").limit(5)
+    @products = @user.products
   end
 
   def new
@@ -25,7 +26,7 @@ class ProductsController < ApplicationController
 
   def create
     @user = current_user
-    @product = Product.new(params.require(:product).permit(:name, :manufacturer, :price, :category, :description, :point_of_reasonability, :point_of_impression, :point_of_taste, :point_of_repeatability, :point_of_design, :image))
+    @product = Product.new(params.require(:product).permit(:name, :manufacturer, :price, :category, :description, :point_of_reasonability, :point_of_impression, :point_of_taste, :point_of_repeatability, :point_of_design, :image, :user_id))
     if @product.save
       redirect_to products_path
     else
@@ -41,7 +42,7 @@ class ProductsController < ApplicationController
   def update
     @user = current_user
     @product = Product.find(params[:id])
-    if @product.update(params.require(:product).permit(:name, :manufacturer, :price, :category, :description, :point_of_reasonability, :point_of_impression, :point_of_taste, :point_of_repeatability, :point_of_design, :image))
+    if @product.update(params.require(:product).permit(:name, :manufacturer, :price, :category, :description, :point_of_reasonability, :point_of_impression, :point_of_taste, :point_of_repeatability, :point_of_design, :image, :user_id))
       redirect_to :product
     else
       render "edit"
