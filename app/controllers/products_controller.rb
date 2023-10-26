@@ -56,4 +56,9 @@ class ProductsController < ApplicationController
     @product.destroy
     redirect_to :products
   end 
+
+  def search
+    @user = current_user
+    @searched_products = Product.looks(params[:word])
+  end
 end
