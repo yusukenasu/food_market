@@ -3,7 +3,9 @@ class ProductsController < ApplicationController
     @user = current_user
     @products = Product.all
     @random_products = Product.order("RANDOM()").limit(5)
-    @products = @user.products
+    if user_signed_in?
+      @user_products = @user.products
+    end
   end
 
   def new

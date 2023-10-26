@@ -28,9 +28,11 @@
   </div>
 
   <!-- 関連づけテスト-->
-  <p>↓ログイン中のユーザーが登録した商品名↓</p></br>
-  <% @products.each do |product| %>
-    <%= product.name %>
+  <% if user_signed_in? %>
+    <p>↓ログイン中のユーザーが登録した商品名↓</p></br>
+    <% @user_products.each do |product| %>
+      <%= product.name %>
+    <% end %>
+  <% else %>
   <% end %>
-
 </div>

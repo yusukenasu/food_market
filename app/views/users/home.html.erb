@@ -11,8 +11,20 @@
   <h4>名前：<%= current_user.name %></h4>
   <h4>メールアドレス：<%= current_user.email %></h4>
   <h4>プロフィール：<%= current_user.profile %></h4>
+  </br>
+  <h4>登録商品一覧</h4>
+  <% @user_products.each do |product| %>
+    <% if product.image.present? %>
+      <%= link_to product do %>
+      <% image_tag product.image.variant(resize: "100x100") %>
+    <% end %>
+    <% else %>
+      <%= image_tag 'user_img.png', size: "100x100" %>
+    <% end %>
+    <%= product.name %>
+  <% end %>
 <% else %>
   <h2> 現在ログインしていません </h2>
 <% end %>
-
+</br>
 <%= link_to "戻る", 'javascript:history.back()' %>

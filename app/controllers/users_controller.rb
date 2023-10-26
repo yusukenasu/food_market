@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   def home
     @user = current_user
+    if user_signed_in?
+      @user_products = @user.products
+    end
   end
 
   def edit_account
