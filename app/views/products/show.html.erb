@@ -83,9 +83,11 @@
 </script>
 <!--ここまで-->
 
-<%= link_to "編集", edit_product_path %>
-<%= link_to "商品一覧へ", products_path %>
-<%= link_to "戻る", 'javascript:history.back()' %>
+<% if @product.user_id == current_user.id %>
+  <%= link_to "編集", edit_product_path %>
+<% end %>
+<!-- <%= link_to "商品一覧へ", products_path %> -->
+<!-- <%= link_to "戻る", 'javascript:history.back()' %> -->
 
 <!--以下楽天APIテスト-->
 <h2>楽天市場で商品を探す</h2>
