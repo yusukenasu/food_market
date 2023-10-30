@@ -1,4 +1,4 @@
-<h1>New Product</h1>
+<h2>商品情報を登録しよう！</h2>
     
 <%= form_with model: @product do |f| %>
   <div class="product_information">
@@ -33,23 +33,23 @@
   <div class="product_score">
     <div>
       <%= f.label :コスパ %><br>
-      <%= f.number_field :point_of_reasonability %>
+      <%= f.select :point_of_reasonability, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
     </div>
     <div>
       <%= f.label :特徴的 %><br>
-      <%= f.number_field :point_of_impression %>
+      <%= f.select :point_of_impression, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
     </div>
     <div>
       <%= f.label :味 %><br>
-      <%= f.number_field :point_of_taste %>
+      <%= f.select :point_of_taste, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
     </div>
     <div>
       <%= f.label :リピート性 %><br>
-      <%= f.number_field :point_of_repeatability %>
+      <%= f.select :point_of_repeatability, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
     </div>
     <div>
       <%= f.label :デザイン性 %><br>
-      <%= f.number_field :point_of_design %>
+      <%= f.select :point_of_design, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
     </div>
   </div>
   <div>

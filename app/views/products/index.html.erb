@@ -1,7 +1,7 @@
 <% if user_signed_in? %>
   <div class="index_page">
     <div class="first_view_product_images_container">
-      <% @random_products.limit(5).each do |product| %>
+      <% @random_products.first(5).each do |product| %>
         <% if product.image.present? %>
           <%= link_to product do %>
             <% image_tag product.image.variant(resize: "100x100") %>
@@ -23,10 +23,25 @@
       <% end %>
     </div>
   </div>
+  </br>
+  <div class="first_view_product_images_container">
+    <% @random_products.last(5).each do |product| %>
+      <% if product.image.present? %>
+        <%= link_to product do %>
+          <% image_tag product.image.variant(resize: "100x100") %>
+        <% end %>
+      <% else %>
+        <%= image_tag 'user_img.png', size: "100x100" %>
+      <% end %>
+    <% end %>
+  </div>
+
+
+
 <% else %>
 <div class="index_page">
   <div class="first_view_product_images_container">
-    <% @random_products.limit(5).each do |product| %>
+    <% @random_products.first(5).each do |product| %>
       <% if product.image.present? %>
         <%= link_to "#" do %>
           <% image_tag product.image.variant(resize: "100x100") %>
@@ -47,5 +62,16 @@
       <%= f.submit "検索" %>
     <% end %>
   </div>
+</div>
+<div class="first_view_product_images_container">
+  <% @random_products.last(5).each do |product| %>
+    <% if product.image.present? %>
+      <%= link_to product do %>
+        <% image_tag product.image.variant(resize: "100x100") %>
+      <% end %>
+    <% else %>
+      <%= image_tag 'user_img.png', size: "100x100" %>
+    <% end %>
+  <% end %>
 </div>
 <% end %>
