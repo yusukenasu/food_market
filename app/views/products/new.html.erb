@@ -1,18 +1,19 @@
 <h2>商品情報を登録しよう！</h2>
-    
+<p>※は必須項目です</p>
+
 <%= form_with model: @product do |f| %>
   <div class="product_information">
     <div>
-      <%= f.label :商品名 %><br>
+      <%= f.label :"商品名 ※"%><br>
       <%= f.text_field :name %>
     </div>
     <div>
-      <%= f.label :製造メーカー %><br>
+      <%= f.label :"製造メーカー ※" %><br>
       <%= f.text_field :manufacturer %>
     </div>
     <div>
-      <%= f.label :円・価格（税込） %><br>
-      <%= f.text_field :price %>
+      <%= f.label :"円・価格（税込） ※" %><br>
+      <%= f.number_field :price, min: 1, placeholder: "半角数字で入力" %>
     </div>
     <div>
       <%= f.label :カテゴリー %><br>
@@ -20,7 +21,7 @@
     </div>
     <div>
       <%= f.label :商品説明 %><br>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, size: "40x5", placeholder: "200文字以内" %>
     </div>
     <div>
       <%= f.label :image %><br/>
@@ -31,6 +32,7 @@
     </div>
   </div>
   <div class="product_score">
+    <p>【商品の評価 ※】</p>
     <div>
       <%= f.label :コスパ %><br>
       <%= f.select :point_of_reasonability, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
