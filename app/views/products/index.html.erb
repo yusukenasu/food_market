@@ -66,7 +66,7 @@
 <div class="first_view_product_images_container">
   <% @random_products.last(5).each do |product| %>
     <% if product.image.present? %>
-      <%= link_to product do %>
+      <%= link_to "#" do %>
         <% image_tag product.image.variant(resize: "100x100") %>
       <% end %>
     <% else %>

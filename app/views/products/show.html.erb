@@ -1,4 +1,4 @@
-<h1>商品詳細</h1>
+<h2><%= @product.name %></h2>
 <div class="product_image">
   <% if @product.image.present? %>
     <%= image_tag @product.image.variant(resize: "100x100") %>
@@ -27,19 +27,19 @@
 
   <table class="product_score" border="1">
     <tr>
-      <th>コスパ</th><td><%= @product.point_of_reasonability %></td>
+      <th>コスパ</th><td><%= item_score(@product.point_of_reasonability) %></td>
     </tr>
     <tr>
-      <th>特徴的</th><td><%= @product.point_of_impression %></td>
+      <th>特徴的</th><td><%= item_score(@product.point_of_impression) %></td>
     </tr>
     <tr>
-      <th>味</th><td><%= @product.point_of_taste %></td>
+      <th>味</th><td><%= item_score(@product.point_of_taste) %></td>
     </tr>
     <tr>
-      <th>リピート性</th><td><%= @product.point_of_repeatability %></td>
+      <th>リピート性</th><td><%= item_score(@product.point_of_repeatability) %></td>
     </tr>
     <tr>
-      <th>デザイン性</th><td><%= @product.point_of_design %></td>
+      <th>デザイン性</th><td><%= item_score(@product.point_of_design) %></td>
     </tr>
   </table>
 </div>
