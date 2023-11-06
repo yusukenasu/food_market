@@ -22,7 +22,7 @@ class ProductsController < ApplicationController
     gon.repeatability = @product.point_of_repeatability
     gon.design = @product.point_of_design
     if @product.name
-      @items = RakutenWebService::Ichiba::Item.search(keyword: @product.name)
+      @items = RakutenWebService::Ichiba::Item.search(keyword: "#{@product.name} #{@product.manufacturer}")
     end
   end
 
