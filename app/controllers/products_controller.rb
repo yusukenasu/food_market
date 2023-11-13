@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
   def show
     @user = current_user
     @product = Product.find(params[:id])
+    @contributor = @product.user
     gon.reasonability = @product.point_of_reasonability
     gon.impression = @product.point_of_impression
     gon.taste = @product.point_of_taste

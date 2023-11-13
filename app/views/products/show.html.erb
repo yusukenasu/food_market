@@ -44,6 +44,15 @@
   </table>
 </div>
 
+<!--関連づけの確認-->
+<% if @contributor.image.present? %>
+  <%= image_tag @contributor.image.variant(resize: "100x100") %>
+<% else %>
+  <%= image_tag 'user_img.png', size: "100x100" %>
+<% end %>
+<p>投稿者：<span><%= @contributor.name %></span><br>
+ユーザーレベル：<span>イイネ！数に応じてランク名を表示予定</span></p>
+
 <!--グラフの記述-->
 <div style="width:400px">
   <canvas id="myChart"></canvas>
