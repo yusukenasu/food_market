@@ -10,6 +10,10 @@
     <%= product.name %>
     <%= product.description %>
     </br>
+    <%= image_tag product.user.image.variant(resize: "100x100") %>
+    <p>投稿者：<span><%= product.user.name %></span><br>
+      ユーザーレベル：<span>イイネ！数に応じてランク名を表示予定</span></p>
+    </br>
   <% end %>
 <% else %>
   <p>商品詳細情報を確認するには<span><%= link_to "新規登録", new_user_registration_path %></span>または<span><%= link_to "ログイン", new_user_session_path %></span>が必要です。</p>
