@@ -42,3 +42,62 @@
 body{
   margin: 15px;
 }
+
+/*商品詳細画面*/
+.product_container{
+  display: flex;
+}
+
+#myChart{
+  background-color: lightyellow;
+}
+
+/*API関連*/
+.item-container{
+  display: flex;
+  margin: 10px;
+  border: 1px solid black;
+}
+
+/*FV関連*/
+.first_view_product_images_container{
+  display: flex;
+  justify-content: space-between;
+  width: 65%;
+  margin: 50px auto;
+}
+
+.registration_container{
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+.registration_new_product{
+  text-decoration-line: none;
+  text-decoration: none;
+  color: darkslategray;
+  font-size: 15pt;
+  background-color: tomato;
+  text-align: center;
+  padding: 20px;
+  border-radius: 50px;
+}
+
+.search_form{
+  display: flex;
+  justify-content: center;
+  padding: 50px;
+}
+
+/*商品登録画面*/
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+.product_score{
+  background-color: bisque;
+  display: inline-block;
+  padding: 10px;
+}

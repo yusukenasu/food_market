@@ -1,0 +1,63 @@
+<h2>商品情報を編集してください</h2>
+<p>※は必須項目です</p>
+
+<%= form_with model: @product do |f| %>
+  <div class="product_information">
+    <div>
+      <%= f.label :"商品名 ※"%><br>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :"製造メーカー ※" %><br>
+      <%= f.text_field :manufacturer %>
+    </div>
+    <div>
+      <%= f.label :"円・価格（税込） ※" %><br>
+      <%= f.number_field :price, min: 1, placeholder: "半角数字で入力" %>
+    </div>
+    <div>
+      <%= f.label :カテゴリー %><br>
+      <%= f.text_field :category %>
+    </div>
+    <div>
+      <%= f.label :商品説明 %><br>
+      <%= f.text_area :description, size: "40x5", placeholder: "200文字以内" %>
+    </div>
+    <div>
+      <%= f.label :商品画像 %><br/>
+      <%= f.file_field :image %>
+    </div>
+    <div>
+      <%= f.hidden_field :user_id, value: @user.id %>
+    </div>
+  </div>
+  <div class="product_score">
+    <p>【商品の評価 ※】</p>
+    <div>
+      <%= f.label :コスパ %><br>
+      <%= f.select :point_of_reasonability, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
+    </div>
+    <div>
+      <%= f.label :特徴的 %><br>
+      <%= f.select :point_of_impression, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
+    </div>
+    <div>
+      <%= f.label :味 %><br>
+      <%= f.select :point_of_taste, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
+    </div>
+    <div>
+      <%= f.label :リピート性 %><br>
+      <%= f.select :point_of_repeatability, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
+    </div>
+    <div>
+      <%= f.label :デザイン性 %><br>
+      <%= f.select :point_of_design, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
+    </div>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= button_to "削除", "/products/#{@product.id}", method: :delete %>
+<%= link_to "戻る", 'javascript:history.back()' %>

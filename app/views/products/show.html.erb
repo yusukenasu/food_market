@@ -1,0 +1,102 @@
+<h2><%= @product.name %></h2>
+<div class="product_image">
+  <% if @product.image.present? %>
+    <%= image_tag @product.image.variant(resize: "100x100") %>
+  <% else %>
+    <%= image_tag 'user_img.png', size: "100x100" %>
+  <% end %>
+</div>
+<div class="product_container">
+  <table class="product_detail" border="1">
+    <tr>
+      <th>製造メーカー</th><td><%= @product.manufacturer %></td>
+    </tr>
+    <tr>
+      <th>価格</th><td><%= @product.price %>円（税込）</td>
+    </tr>
+    <tr>
+      <th>カテゴリー</th><td><%= @product.category %></td>
+    </tr>
+    <tr>
+      <th>商品説明</th><td><%= @product.description %></td>
+    </tr>
+  </table>
+
+  <table class="product_score" border="1">
+    <tr>
+      <th>コスパ</th><td><%= item_score(@product.point_of_reasonability) %></td>
+    </tr>
+    <tr>
+      <th>特徴的</th><td><%= item_score(@product.point_of_impression) %></td>
+    </tr>
+    <tr>
+      <th>味</th><td><%= item_score(@product.point_of_taste) %></td>
+    </tr>
+    <tr>
+      <th>リピート性</th><td><%= item_score(@product.point_of_repeatability) %></td>
+    </tr>
+    <tr>
+      <th>デザイン性</th><td><%= item_score(@product.point_of_design) %></td>
+    </tr>
+  </table>
+</div>
+
+<!--関連づけの確認-->
+<% if @contributor.image.present? %>
+  <%= image_tag @contributor.image.variant(resize: "100x100") %>
+<% else %>
+  <%= image_tag 'user_img.png', size: "100x100" %>
+<% end %>
+<p>投稿者：<span><%= @contributor.name %></span><br>
+ユーザーレベル：<span>イイネ！数に応じてランク名を表示予定</span></p>
+
+<!--グラフの記述-->
+<div style="width:400px">
+  <canvas id="myChart"></canvas>
+</div>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  var reasonability = gon.reasonability;
+  var impression = gon.impression;
+  var taste = gon.taste;
+  var repeatability = gon.repeatability;
+  var design = gon.design;
+  var ctx = document.getElementById('myChart');
+  var myChart = new Chart(ctx, {
+    type: 'radar',
+    data: {
+      labels: ['コスパ', '特徴的', '味', 'リピート性', 'デザイン性'],
+      datasets: [{
+          label: '# of Votes',
+          data: [reasonability, impression, taste, repeatability, design],
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        r: {
+          max: 5,
+          min: 0,
+          ticks: {
+            stepSize: 1
+          }
+        }
+      },
+    }
+});
+</script>
+<!--ここまで-->
+
+<% if @product.user_id == current_user.id %>
+  <%= link_to "編集", edit_product_path %>
+<% end %>
+<!-- <%= link_to "商品一覧へ", products_path %> -->
+<!-- <%= link_to "戻る", 'javascript:history.back()' %> -->
+
+<!--以下楽天APIテスト-->
+<h2>楽天市場で商品を探す</h2>
+<% if @items.present? %>
+  <%= render 'layouts/item' %>
+<% end %>
