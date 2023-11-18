@@ -30,7 +30,7 @@ module ApplicationHelper
     when 4..5 
       return "目利きユーザー"
     else
-      return "プロバイヤー並みユーザー"
+      return "プロバイヤー並み"
     end
   end
 end
