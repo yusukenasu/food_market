@@ -9,4 +9,9 @@ module ApplicationHelper
     end
     return star
   end
+
+  def amount_of_favorites_with_product(productid)
+    number = Favorite.where(product_id: productid)
+    return number.count
+  end
 end

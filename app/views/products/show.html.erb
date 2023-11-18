@@ -44,13 +44,14 @@
 <!--いいいねボタン-->
 <% if @product.favorited?(@user) %>
   <%= button_to product_favorites_path(@product.id), method: :delete do %>
-    <span style="color:orange;">★イイね！</span>
+    <span style="color:orange;">★イイね！<%= amount_of_favorites_with_product(@product.id) %></span>
   <% end %>
 <% else %>
   <%= button_to product_favorites_path(@product.id), method: :post do %>
-    <span style="color:lightgray;">★イイね！</span>
+    <span style="color:lightgray;">★イイね！<%= amount_of_favorites_with_product(@product.id) %></span>
   <% end %>
 <% end %>
+
 
 <!--関連づけの確認-->
 <% if @contributor.image.present? %>
