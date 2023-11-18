@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
+  get 'products/search' ,to: 'products#search'
   resources :products do
     resource :favorites, only: [:create, :destroy]
   end
-  get 'products/search' ,to: 'products#search'
   # 開発環境用letter_opener
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener" 

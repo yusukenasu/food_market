@@ -11,7 +11,7 @@
   <h4>名前：<%= current_user.name %></h4>
   <h4>メールアドレス：<%= current_user.email %></h4>
   <h4>プロフィール：<%= current_user.profile %></h4>
-  <h4>★イイね！数：</h4>
+  <h4>★イイね！数：<%= amount_of_favorites_with_user(current_user.id) %></h4>
   </br>
   <h4>登録商品一覧</h4>
   <% @user_products.each do |product| %>
