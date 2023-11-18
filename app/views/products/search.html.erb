@@ -9,10 +9,11 @@
     <% end %>
     <%= product.name %>
     <%= product.description %>
+    <p>★イイね！<span><%= amount_of_favorites_with_product(product.id) %></span></p>
     </br>
     <%= image_tag product.user.image.variant(resize: "100x100") %>
     <p>投稿者：<span><%= product.user.name %></span><br>
-      ユーザーレベル：<span>イイネ！数に応じてランク名を表示予定</span></p>
+      ユーザーレベル：<span><%= user_rank(product.user.id) %></span></p>
     </br>
   <% end %>
 <% else %>
@@ -25,6 +26,13 @@
     <%= image_tag 'user_img.png', size: "100x100" %>
     <% end %>
     <%= product.name %>
+    <%= product.description %>
+    <p>★イイね！<span><%= amount_of_favorites_with_product(product.id) %></span></p>
+    </br>
+    <%= image_tag product.user.image.variant(resize: "100x100") %>
+    <p>投稿者：<span><%= product.user.name %></span><br>
+      ユーザーレベル：<span><%= user_rank(product.user.id) %></span></p>
+    </br>
     </br>
   <% end %>
 <% end %>

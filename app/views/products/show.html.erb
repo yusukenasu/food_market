@@ -60,7 +60,7 @@
   <%= image_tag 'user_img.png', size: "100x100" %>
 <% end %>
 <p>投稿者：<span><%= @contributor.name %></span><br>
-ユーザーレベル：<span>イイネ！数に応じてランク名を表示予定</span></p>
+ユーザーレベル：<span><%= user_rank(@contributor) %></span></p>
 
 <!--グラフの記述-->
 <div style="width:400px">
