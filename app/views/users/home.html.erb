@@ -8,22 +8,28 @@
       <%= image_tag 'user_img.png', size: "100x100" %>
     <% end %>
   </div>
-  <h4>名前：<%= current_user.name %></h4>
-  <h4>メールアドレス：<%= current_user.email %></h4>
-  <h4>プロフィール：<%= current_user.profile %></h4>
-  <h4>★イイね！数：<%= amount_of_favorites_with_user(current_user.id) %></h4>
-  <h4><%= user_rank(current_user.id) %></h4>
+  <p>ユーザー名：<%= current_user.name %></p>
+  <p>メールアドレス：<%= current_user.email %></p>
+  <p>プロフィール：<%= current_user.profile %></p>
+  <p>★イイね！数：<%= amount_of_favorites_with_user(current_user.id) %></p>
+  <p>ユーザーランク：<%= user_rank(current_user.id) %></p>
   </br>
   <h4>登録商品一覧</h4>
   <% @user_products.each do |product| %>
-    <% if product.image.present? %>
-      <%= link_to product do %>
-      <% image_tag product.image.variant(resize: "100x100") %>
-    <% end %>
-    <% else %>
-      <%= image_tag 'user_img.png', size: "100x100" %>
-    <% end %>
-    <%= product.name %>
+    <div class="searched_container">
+      <div class="searched_container_product_section">
+        <div class="searched_container_product_image">
+          <%= link_to product do %>
+            <%= image_tag product.image.variant(resize: "100x100") %>
+          <% end %>
+        </div>
+        <div class="searched_product_information">
+          <p><%= product.name %>
+          <span style="color:orange;">★<%= amount_of_favorites_with_product(product.id) %></span></p>
+          <%= product.description %>
+        </div>
+      </div>
+    </div>
   <% end %>
 <% else %>
   <h2> 現在ログインしていません </h2>
