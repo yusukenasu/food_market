@@ -13,7 +13,7 @@ class Product < ApplicationRecord
   validates :point_of_design, presence: true, numericality: { in: 1..5 }
             
   def self.looks(word)
-    @searched_products = Product.where("name LIKE?","%#{word}%")
+    @searched_products = Product.where("name LIKE ? OR category LIKE ?", "%#{word}%", "%#{word}%")
   end
 
   def favorited?(user)
