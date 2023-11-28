@@ -127,10 +127,15 @@ body{
 
 
 /*API関連*/
-.item-container{
+.related_item_container{
   display: flex;
-  margin: 10px;
-  border: 1px solid black;
+  justify-content: space-between;
+}
+
+.item_container{
+  width: 25%;
+  padding: 5px;
+  border: 3px outset lightgray;
 }
 
 /*FV関連*/
@@ -168,6 +173,15 @@ body{
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
+}
+
+/*マイページ*/
+.edit_delete_link{
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  align-items: flex-end;
+  padding-left: 10px;
 }
 
 /*検索結果画面*/

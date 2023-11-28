@@ -1,15 +1,15 @@
-<div class="item-container">
-  <% @items.first(5).each do |item| %>
-    <div class="related-items">
-      <div class="related-item-image">
+<div class="related_item_container">
+  <% @items.first(4).each do |item| %>
+    <div class="item_container">
+      <div class="item_image">
         <%= image_tag (item['smallImageUrls'][0]) %>
-      <div>
-      <div class="related-item-price">
-        <%= number_with_delimiter(item.price) %>円
       </div>
-      <div class="related-item-name">
+      <div class="item_price">
+        ¥<%= number_with_delimiter(item.price) %>
+      </div>
+      <div class="item_name">
         <%= link_to item.name, "#{item.url}" %>
       </div>
     </div>
   <% end %>
-</div>  
+</div>

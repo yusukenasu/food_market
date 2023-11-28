@@ -28,11 +28,17 @@
           <span style="color:orange;">★<%= amount_of_favorites_with_product(product.id) %></span></p>
           <%= product.description %>
         </div>
+        <div class="edit_delete_link">
+          <div>
+            <%= link_to "編集", edit_product_path(product) %>
+          </div>
+          <div>
+            <%= button_to "削除", product, method: :delete %>
+          </div>
+        </div>
       </div>
     </div>
   <% end %>
 <% else %>
   <h2> 現在ログインしていません </h2>
 <% end %>
-</br>
-<%= link_to "戻る", 'javascript:history.back()' %>
