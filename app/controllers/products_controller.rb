@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   def index
     @user = current_user
     @products = Product.all
-    @random_products = Product.order("RANDOM()").limit(10)
+    @random_products = Product.order("RAND()").limit(10)
     if user_signed_in?
       @user_products = @user.products
     end
