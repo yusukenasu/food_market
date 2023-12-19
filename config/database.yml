@@ -51,7 +51,7 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 
- production:
+production:
   <<: *default
   database: food_market_production
   username: food_market

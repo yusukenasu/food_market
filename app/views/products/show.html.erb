@@ -4,16 +4,8 @@
       <div class="product_image">
         <%= image_tag @product.image.variant(resize: "100x100") %>
       </div>
-      <div class="favorite_button">
-        <% if @product.favorited?(@user) %>
-          <%= button_to product_favorites_path(@product.id), method: :delete do %>
-            <span style="color:orange; font-size: 10px;">★イイね！<%= amount_of_favorites_with_product(@product.id) %></span>
-          <% end %>
-        <% else %>
-          <%= button_to product_favorites_path(@product.id), method: :post do %>
-            <span style="color:lightgray; font-size: 10px;">★イイね！<%= amount_of_favorites_with_product(@product.id) %></span>
-          <% end %>
-        <% end %>
+      <div id="favorite_buttons_<%= @product.id %>">
+        <%= render "favorites/favorite", product: @product %>
       </div>
     </div>
 
