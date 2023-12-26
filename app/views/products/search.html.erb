@@ -1,30 +1,47 @@
 <% if user_signed_in? %>
   <% @searched_products.each do |product| %>
-    <% if product.image.present? %>
-      <%= link_to product do %>
-        <% image_tag product.image.variant(resize: "100x100") %>
-      <% end %>
-    <% else %>
-      <%= image_tag 'user_img.png', size: "100x100" %>
-    <% end %>
-    <%= product.name %>
-    <%= product.description %>
-    </br>
-    <%= image_tag product.user.image.variant(resize: "100x100") %>
-    <p>投稿者：<span><%= product.user.name %></span><br>
-      ユーザーレベル：<span>イイネ！数に応じてランク名を表示予定</span></p>
-    </br>
+    <div class="searched_container">
+      <div class="searched_container_product_section">
+        <div class="searched_container_product_image">
+          <%= link_to product do %>
+            <%= image_tag product.image.variant(resize: "100x100") %>
+          <% end %>
+        </div>
+        <div class="searched_product_information">
+          <p><%= product.name %>
+          <span style="color:orange;">★<%= amount_of_favorites_with_product(product.id) %></span></p>
+          <%= product.description %>
+        </div>
+      </div>
+      <div class="searched_container_user_section">
+        <%= image_tag product.user.image.variant(resize: "100x100") %><br>
+        <%= product.user.name %><br>
+        <%= user_rank(product.user.id) %>
+        </br>
+      </div>
+    </div>
   <% end %>
 <% else %>
   <p>商品詳細情報を確認するには<span><%= link_to "新規登録", new_user_registration_path %></span>または<span><%= link_to "ログイン", new_user_session_path %></span>が必要です。</p>
   </br>
   <% @searched_products.each do |product| %>
-    <% if product.image.present? %>
-      <%= image_tag product.image.variant(resize: "100x100") %>
-    <% else %>
-    <%= image_tag 'user_img.png', size: "100x100" %>
-    <% end %>
-    <%= product.name %>
-    </br>
+    <div class="searched_container">
+      <div class="searched_container_product_section">
+        <div class="searched_container_product_image">
+          <%= image_tag product.image.variant(resize: "100x100") %>
+        </div>
+        <div class="searched_product_information">
+          <p><%= product.name %>
+          <span style="color:orange;">★<%= amount_of_favorites_with_product(product.id) %></span></p>
+          <%= product.description %>
+        </div>
+      </div>
+      <div class="searched_container_user_section">
+        <%= image_tag product.user.image.variant(resize: "100x100") %><br>
+        <%= product.user.name %><br>
+        <%= user_rank(product.user.id) %>
+        </br>
+      </div>
+    </div>
   <% end %>
 <% end %>

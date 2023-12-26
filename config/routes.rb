@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'products/index' ,to: 'products#index'
   get 'products/search' ,to: 'products#search'
+  resources :products do
+    resource :favorites, only: [:create, :destroy]
+  end
   # 開発環境用letter_opener
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener" 
@@ -18,7 +20,7 @@ Rails.application.routes.draw do
   get 'users/home' ,to: 'users#home'
   get 'users/edit_account' ,to: 'users#edit_account'
   patch 'users/account_update' ,to: 'users#account_update'
-  resources :products
+ 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

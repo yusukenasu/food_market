@@ -41,6 +41,7 @@
 <% else %>
 <div class="index_page">
   <div class="first_view_product_images_container">
+  <% if @random_products.present? %>
     <% @random_products.first(5).each do |product| %>
       <% if product.image.present? %>
         <%= link_to "#" do %>
@@ -50,6 +51,7 @@
         <%= image_tag 'user_img.png', size: "100x100" %>
       <% end %>
     <% end %>
+  <% end %>
   </div>
 
   <div class="registration_container">
