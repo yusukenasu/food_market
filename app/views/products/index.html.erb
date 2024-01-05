@@ -1,3 +1,6 @@
+<div class="index_title">
+  〜商品開発チームのための美味しさ共有プラットフォーム〜
+</div>
 <% if user_signed_in? %>
   <div class="index_page">
     <div class="first_view_product_images_container">
@@ -11,16 +14,8 @@
         <% end %>
       <% end %>
     </div>
-
     <div class="registration_container">
-    <%= link_to "お気に入りの商品を登録する", new_product_path, class: "registration_new_product" %>
-    </div>
-
-    <div class="search_form">
-      <%= form_with url: products_search_path, method: :get, local: true do |f| %>
-        <%= f.text_field :word %>
-        <%= f.submit "検索" %>
-      <% end %>
+      <%= link_to "チームメイトにシェアする", new_product_path, class: "registration_new_product" %>
     </div>
   </div>
   </br>
@@ -53,16 +48,9 @@
     <% end %>
   <% end %>
   </div>
-
   <div class="registration_container">
-    <p><span><%= link_to "新規登録", new_user_registration_path %></span>または<span><%= link_to "ログイン", new_user_session_path %></span>してお気に入りの商品を探そう！</p>
-  </div>
-
-  <div class="search_form">
-    <%= form_with url: products_search_path, method: :get, local: true do |f| %>
-      <%= f.text_field :word %>
-      <%= f.submit "検索" %>
-    <% end %>
+    <p><span><%= link_to "新規登録", new_user_registration_path %></span>または<span><%= link_to "ログイン", new_user_session_path %></span>して商品情報をシェアしよう！
+    </br>ゲストログインは<span><%= link_to 'こちら', users_guest_sign_in_path, method: :post, class: "login" %></span>！</p>
   </div>
 </div>
 <div class="first_view_product_images_container">
