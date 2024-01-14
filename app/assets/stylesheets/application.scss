@@ -103,7 +103,7 @@ a {
   
   .search_form{
     font-size: 12px;
-    padding: 8px;
+    padding: 6px;
   }
 }
 
@@ -125,6 +125,222 @@ a {
     padding: 8px;
   }
 }
+
+/*FV*/
+.index_title{
+  text-align: center;
+  font-size: 24px;
+  margin: 50px;
+}
+
+.index_title_br{
+  display: none;
+}
+
+.firstview_menu_container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.firstview_upper_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.registration_container{
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.registration_new_product{
+  text-decoration-line: none;
+  text-decoration: none;
+  color: white;
+  font-size: 20pt;
+  background-color: rgba(253, 75, 16, 0.852);
+  text-align: center;
+  padding: 15px 25px;
+  border-radius: 40px;
+}
+
+.firstview_middle_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin: 8px;
+}
+
+.firstview_product_images_container{
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.product_images{
+  max-width: 90px;
+  height: auto;
+}
+
+.firstview_middle_container_image{
+  max-width: 70px; /* 親要素に合わせて最大幅を設定 */
+  height: auto; /* アスペクト比を維持したまま高さを自動調整 */
+}
+
+.firstview_lower_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+}
+
+.search_form_firstview{
+  font-size: 25px;
+  padding: 10px;
+}
+
+.search_form_firstview input{
+  padding: 6px;
+  border-radius: 30px;
+}
+
+/*ログアウト画面*/
+.index_message_br{
+  display: none;
+}
+
+.registration_login_guestlogin_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.registration_login_guestlogin_button{
+  text-decoration-line: none;
+  text-decoration: none;
+  color: white;
+  font-size: 15pt;
+  background-color: rgba(253, 75, 16, 0.852);
+  text-align: center;
+  margin: 5px;
+  padding: 15px 25px;
+  border-radius: 40px;
+}
+
+/* FV（タブレット用959px以下）*/
+@media screen and (max-width: 959px) {
+  .index_title_br{
+    display: block;
+  }
+
+  .firstview_upper_container{
+    width: 90%;
+  }
+
+  .registration_new_product{
+    font-size: 14pt;
+    padding: 10px 20px;
+    border-radius: 30px;
+  }
+
+  .firstview_middle_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 8px;
+  }
+
+  .firstview_product_images_container a:nth-child(n+5){
+    display: none;
+  }
+  
+  .firstview_product_images_container{
+    width: 60%;
+  }
+  
+  .product_images{
+    max-width: 23%;
+    height: auto;
+  }
+
+  .firstview_middle_container_image{
+    max-width: 40px;
+    height: auto;
+  }
+ 
+  .search_form_firstview{
+    font-size: 15px;
+    padding: 5px;
+  }
+
+  /*ログアウト画面*/
+  .index_message_br{
+    display: block;
+  }
+
+  .registration_login_guestlogin_button{
+    font-size: 10pt;
+    font-weight: bold;
+    margin: 2px;
+    padding: 10px 20px;
+  }
+}
+
+	/* FV（スマホ用480px以下）*/
+  @media screen and (max-width: 480px) {
+    .index_title{
+      font-size: 20px;
+      margin: 20px;
+    }
+
+    .registration_new_product{
+      font-size: 10pt;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 40px;
+    }
+
+    .firstview_middle_container{
+      width: 95%;
+      margin: 0 5px;
+    }
+
+    .firstview_product_images_container{
+      width: 40%;
+    }
+
+    .product_images{
+      max-width: 48%;
+      height: auto;
+    }
+
+    .search_form_firstview{
+      font-size: 10px;
+      padding: 2px;
+    }
+
+    /*ログアウト画面*/
+    .registration_container{
+      font-size: 12px;
+    }
+
+    .registration_login_guestlogin_container{
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 15px;
+    }
+
+    .registration_login_guestlogin_button{
+      
+    }
+  }
 
 /*ボディ*/
 body{
@@ -218,36 +434,6 @@ body{
   width: 25%;
   padding: 5px;
   border: 3px outset lightgray;
-}
-
-/*FV関連*/
-.index_title{
-  text-align: center;
-  font-size: 24px;
-}
-
-.first_view_product_images_container{
-  display: flex;
-  justify-content: space-between;
-  width: 65%;
-  margin: 50px auto;
-}
-
-.registration_container{
-  display: flex;
-  justify-content: center;
-  padding: 50px;
-}
-
-.registration_new_product{
-  text-decoration-line: none;
-  text-decoration: none;
-  color: darkslategray;
-  font-size: 15pt;
-  background-color: tomato;
-  text-align: center;
-  padding: 20px;
-  border-radius: 50px;
 }
 
 /*商品登録画面*/
