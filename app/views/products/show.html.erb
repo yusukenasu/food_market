@@ -1,32 +1,20 @@
 <div class="product_container">
   <div class="product_info_container">
     <div class="product_image_container">
-      <div class="product_image">
-        <%= image_tag @product.image.variant(resize: "100x100") %>
+      <div>
+        <%= image_tag @product.image, class: "product_image" %>
       </div>
       <div id="favorite_buttons_<%= @product.id %>">
         <%= render "favorites/favorite", product: @product %>
       </div>
     </div>
-
     <div class="product_detail_container">
-      <table>
-        <tr>
-          <td style="font-size: 18px; font-weight: 600;"><%= @product.name %></td>
-        </tr>
-        <tr>
-          <td style="font-size: 12px;"><%= @product.manufacturer %></td>
-        </tr>
-        <tr>
-          <td style="font-size: 16px; font-weight: 500;">¥<%= @product.price %>（税込）</td>
-        </tr>
-        <tr>
-          <td style="font-size: 12px;">カテゴリ：<%= @product.category %></td>
-        </tr>
-      </table>
+      <div class="product_detail_name"><%= @product.name %></div>
+      <div class="product_detail_manufacturer"><%= @product.manufacturer %></div>
+      <div class="product_detail_price">¥<%= @product.price %>（税込）</div>
+      <div class="product_detail_category">カテゴリ：<%= @product.category %></div>
     </div>
   </div>
-
   <div class="product_score_container">
     <div class="product_starscore_container">
       <table>
@@ -47,7 +35,6 @@
         </tr>
       </table>
     </div>
-    
     <div class="product_raderchart_container">
       <canvas id="myChart"></canvas>
       <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -92,22 +79,21 @@
     </div>
   </div>
 </div>
-
 <div class="contributor_container">
   <div class="contributor_description">
     <div class="contributor_description_contents">
       <%= @product.description %>
     </div>
   </div>
-  <div class="contributor">
-    <div><%= user_rank(@contributor) %></div>
-    <div><%= @contributor.name %></div>
-    <div><%= image_tag @contributor.image.variant(resize: "100x100") %></div>
+  <div class="contributor_infomation">
+    <div class="contributor_user_rank"><%= user_rank(@contributor) %></div>
+    <div class="contributor_name"><%= @contributor.name %></div>
+    <div><%= image_tag @contributor.image, class: "contributor_image" %></div>
   </div>
 </div>
-
-<!--以下楽天APIテスト-->
-<h4>楽天市場で商品を探す</h4>
-<% if @items.present? %>
-  <%= render 'layouts/item' %>
-<% end %>
+<div class="rakuten_api">
+  ⇩楽天市場で商品を探す⇩
+  <% if @items.present? %>
+    <%= render 'layouts/item' %>
+  <% end %>
+</div>
