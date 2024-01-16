@@ -602,9 +602,43 @@ body{
 }
 
 /*商品登録画面*/
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
+.product_registration_page{
+  width: 50%;
+  padding: 20px;
+}
+
+.product_registration_page_message1{
+  font-size: 24px;
+}
+
+.product_registration_page_message2{
+  font-size: 15px;
+}
+
+textarea{
+  width: 90%;
+}
+
+/*商品登録画面（タブレット用960px以下）*/
+@media screen and (max-width: 960px) {
+  .product_registration_page{
+    width: 70%;
+  }
+}
+
+/*商品登録画面（スマホ用480px以下）*/
+@media screen and (max-width: 480px) {
+  .product_registration_page{
+    width: 100%;
+  }
+
+  .product_registration_page_message1{
+    font-size: 20px;
+  }
+  
+  .product_registration_page_message2{
+    font-size: 15px;
+  }
 }
 
 /*マイページ*/
