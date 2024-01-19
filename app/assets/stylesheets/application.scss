@@ -441,13 +441,14 @@ body{
   flex-direction: column;
   align-items: center;
   width: 75%;
-  background-image: url(comment2_image.png);
+  margin: 2%;
+  background-image: url(comment3_image.png);
   background-size: 100% 100%;
   background-repeat:no-repeat;
 }
 
 .contributor_description_contents{
-  margin: 10%;
+  margin: 5%;
 }
 
 .contributor_infomation{
@@ -455,7 +456,15 @@ body{
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 5%;
+  margin: auto;
+}
+
+.contributor_user_rank{
+  font-size: 14px;
+}
+
+.contributor_name{
+  font-size: 14px;
 }
 
 .contributor_image{
@@ -528,6 +537,18 @@ body{
     max-height: 65%;
     width: auto;
   }
+
+  .contributor_description_contents{
+    margin: 10%;
+  }
+
+  .contributor_user_rank{
+    font-size: 10px;
+  }
+  
+  .contributor_name{
+    font-size: 12px;
+  }
 }
 
 /*商品詳細画面（スマホ用480px以下）*/
@@ -588,7 +609,7 @@ body{
   }
 
   .contributor_name{
-    font-size: 8px;
+    font-size: 10px;
   }
 
   .contributor_image{
@@ -633,12 +654,13 @@ textarea{
   }
 
   .product_registration_page_message1{
-    font-size: 20px;
+    font-size: 18px;
   }
   
   .product_registration_page_message2{
     font-size: 15px;
   }
+
 }
 
 /*マイページ*/
