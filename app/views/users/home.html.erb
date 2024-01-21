@@ -9,7 +9,7 @@
   <p>ユーザー名：<%= current_user.name %></p>
   <p>メールアドレス：<%= current_user.email %></p>
   <p>プロフィール：<%= current_user.profile %></p>
-  <p>★イイね！数：<%= amount_of_favorites_with_user(current_user.id) %></p>
+  <p>ユーザーレベル（★いいね！獲得数）：<%= amount_of_favorites_with_user(current_user.id) %></p>
   <p>ユーザーランク：<%= user_rank(current_user.id) %></p>
   </br>
   <h4>登録商品一覧</h4>

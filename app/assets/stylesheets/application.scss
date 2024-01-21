@@ -685,12 +685,159 @@ textarea{
   justify-content: space-between;
 }
 
+.searched_product_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+}
+
+.searched_product_image{
+  max-width: 120px;
+  height: auto;
+  padding: 8px;
+}
+
 .searched_product_information{
   width: 80%;
   padding: 8px;
 }
 
+.searched_product_name{
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.searched_product_manufacturer{
+  font-size: 12px;
+}
+
+.searched_product_price{
+  font-size: 15px;
+}
+
+.searched_product_category{
+  font-size: 10px;
+}
+
+.searched_product_description{
+  display: flex;
+  align-items: center;
+  width: 60%;
+  padding: 0 10px;
+}
+
 .searched_container_user_section{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   width: 25%;
   padding: 20px;
+}
+
+.searched_user_image{
+  max-width: 80px;
+  height: auto;
+}
+
+.searched_user_rank{
+  font-size: 12px;
+}
+
+.searched_user_name{
+  font-size: 12px;
+}
+
+/*検索結果画面（タブレット用960px以下）*/
+@media screen and (max-width: 960px) {
+  .searched_container_product_section{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .searched_product_container{
+    border-bottom: 1px solid lightgray;
+  }
+
+  .searched_product_image{
+    max-width: 100px;
+  }
+
+  .searched_product_description{
+    width: 100%;
+    margin: 20px 20px 20px 0;
+  }
+
+  .searched_product_container{
+    width: 100%;
+  }
+
+  .searched_container_user_section{
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .searched_user_image{
+    max-width: 60px;
+  }
+  
+  .searched_user_rank{
+    font-size: 12px;
+  }
+  
+  .searched_user_name{
+    font-size: 12px;
+  }
+}
+
+/*検索結果画面（スマホ用480px以下）*/
+@media screen and (max-width: 480px) {
+  .searched_container_product_section{
+    padding: 5px;
+  }
+
+  .searched_product_container{
+    border-bottom: 0.5px solid lightgray;
+  }
+
+  .searched_product_image{
+    max-width: 90px;
+  }
+
+  .searched_product_name{
+    font-size: 12px;
+  }
+
+  .searched_product_manufacturer{
+    font-size: 10px;
+  }
+
+  .searched_product_price{
+    font-size: 12px;
+  }
+
+  .searched_product_category{
+    font-size: 5px;
+  }
+
+  .searched_product_description{
+    font-size: 12px;
+    margin: 5px 5px 5px 0;
+  }
+
+  .searched_container_user_section{
+    padding: 5px;
+  }
+
+  .searched_user_image{
+    max-width: 40px;
+  }
+  
+  .searched_user_rank{
+    font-size: 5px;
+  }
+  
+  .searched_user_name{
+    font-size: 5px;
+  }
 }
