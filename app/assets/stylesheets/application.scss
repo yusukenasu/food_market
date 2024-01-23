@@ -664,12 +664,170 @@ textarea{
 }
 
 /*マイページ*/
-.edit_delete_link{
+.mypage_user_section{
+  display: flex;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.mypage_user_image{
+  max-width: 100px;
+  height: auto;
+}
+
+.mypage_user_information_container div{
+  margin-top: 10px;
+}
+
+.mypage_product_index_message{
+  padding-left: 30px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.mypage_product_section{
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border: 1px solid lightgray;
+}
+
+.mypage_product_container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  padding: 20px;
+}
+
+.mypage_product_image_container{
+  width: 35%;
+  display: flex;
+  align-items: center;
+}
+
+.mypage_product_image{
+  max-width: 100px;
+  height: auto;
+}
+
+.mypage_product_name_favorites{
+  display: flex;
+  flex-direction: column;
+}
+
+.mypage_product_name{
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.mypage_product_favorites{
+  font-size: 15px;
+  color: orange;
+}
+
+.mypage_product_description{
+  width: 65%;
+  padding: 10px;
+}
+
+.edit_delete_link{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   width: 20%;
-  align-items: flex-end;
+  align-items: center;
   padding-left: 10px;
+}
+
+.edit_delete_link button{
+  border: 1px solid;
+  border-radius: 40px;
+  color: white;
+  background-color: rgba(253, 75, 16, 0.852);
+  margin: 10px;
+  padding: 5px 15px;
+}
+
+/*マイページ（タブレット用960px以下）*/
+@media screen and (max-width: 960px) {
+  .mypage_product_container{
+    padding: 10px;
+  }
+
+  .mypage_product_image_container{
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mypage_product_name_favorites{
+    align-items: center;
+  }
+
+  .mypage_product_name{
+    font-size: 12px;
+  }
+
+  .mypage_product_favorites{
+    font-size: 12px;
+  }
+
+  .edit_delete_link{
+    padding: 10px;
+  }
+
+  .edit_delete_link button{
+    margin: 10px 0;
+  }
+}
+
+/*マイページ（スマホ用480px以下）*/
+@media screen and (max-width: 480px) {
+  .mypage_user_information_container{
+    font-size: 12px;
+  }
+
+  .mypage_user_image{
+    max-width: 80px;
+  }
+
+  .mypage_product_index_message{
+    font-size: 15px;
+  }
+
+  .mypage_product_container{
+    flex-direction: column;
+    align-items: flex-start;
+    width: 80%;
+    padding: 8px;
+  }
+
+  .mypage_product_image_container{
+    flex-direction: row;
+    border-bottom: 0.5px solid lightgray;
+    width: 100%;
+  }
+
+  .mypage_product_name_favorites{
+    align-items: flex-start;
+  }
+
+  .mypage_product_description{
+    font-size: 12px;
+    width: 100%;
+    padding: 10px;
+  }
+
+  .edit_delete_link{
+    width: 20%;
+    padding-left: 0;
+  }
+
+  .edit_delete_link button{
+    font-size: 12px;
+    margin: 5px;
+    padding: 2px 8px;
+  }
 }
 
 /*検索結果画面*/

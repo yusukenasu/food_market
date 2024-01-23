@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     get 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
-  root 'users#home'
+  root 'products#index'
   get 'users/home' ,to: 'users#home'
   get 'users/edit_account' ,to: 'users#edit_account'
   patch 'users/account_update' ,to: 'users#account_update'
