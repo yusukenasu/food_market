@@ -923,6 +923,17 @@ textarea{
   border-bottom: 0.5px solid lightgray;
 }
 
+/*パスワードの再設定画面*/
+.password_reset_page{
+  padding: 20px;
+}
+
+.password_reset_subtitle{
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 0.5px solid lightgray;
+}
+
 /*検索結果画面*/
 .searched_container{
   border: 1px solid lightgray;
