@@ -1,43 +1,41 @@
-<div>
-  <div class="mypage_user_section">
-    <div class="mypage_user_image_container">
-      <% if current_user.image.present? %>
-        <%= image_tag current_user.image, class: "mypage_user_image" %>
-      <% else %>
-        <%= image_tag 'user_img.png', class: "mypage_user_image" %>
-      <% end %>
-    </div>
-    <div class="mypage_user_information_container">
-      <div>ユーザー名：<%= current_user.name %></div>
-      <div>メールアドレス：<%= current_user.email %></div>
-      <div>プロフィール：<%= current_user.profile %></div>
-      <div>ユーザーレベル（★いいね！獲得数）：<%= amount_of_favorites_with_user(current_user.id) %></div>
-      <div>ユーザーランク：<%= user_rank(current_user.id) %></div>
-    </div>
+<div class="mypage_user_section">
+  <div class="mypage_user_image_container">
+    <% if current_user.image.present? %>
+      <%= image_tag current_user.image, class: "mypage_user_image" %>
+    <% else %>
+      <%= image_tag 'user_img.png', class: "mypage_user_image" %>
+    <% end %>
   </div>
-  <div class="mypage_product_index_message">登録商品一覧</div>
-  <% @user_products.each do |product| %>
-  <div class="mypage_product_section">
-    <div class="mypage_product_container">
-      <div class="mypage_product_image_container">
-        <div class="mypage_product_image">
-          <%= link_to product do %>
-            <%= image_tag product.image, class: "mypage_product_image" %>
-          <% end %>
-        </div>
-        <div class="mypage_product_name_favorites">
-          <div class="mypage_product_name"><%= product.name %></div>
-          <div class="mypage_product_favorites">★イイね！<%= amount_of_favorites_with_product(product.id) %></div>
-        </div>
-      </div>
-      <div class="mypage_product_description">
-        <%= product.description %>
-      </div>
-    </div>
-    <div class="edit_delete_link">
-      <div><%= button_to "編集", edit_product_path(product) %></div>
-      <div><%= button_to "削除", product, method: :delete %></div>
-    </div>
+  <div class="mypage_user_information_container">
+    <div>ユーザー名：<%= current_user.name %></div>
+    <div>メールアドレス：<%= current_user.email %></div>
+    <div>プロフィール：<%= current_user.profile %></div>
+    <div>ユーザーレベル（★いいね！獲得数）：<%= amount_of_favorites_with_user(current_user.id) %></div>
+    <div>ユーザーランク：<%= user_rank(current_user.id) %></div>
   </div>
-  <% end %>
 </div>
+<div class="mypage_product_index_message">登録商品一覧</div>
+<% @user_products.each do |product| %>
+<div class="mypage_product_section">
+  <div class="mypage_product_container">
+    <div class="mypage_product_image_container">
+      <div class="mypage_product_image">
+        <%= link_to product do %>
+          <%= image_tag product.image, class: "mypage_product_image" %>
+        <% end %>
+      </div>
+      <div class="mypage_product_name_favorites">
+        <div class="mypage_product_name"><%= product.name %></div>
+        <div class="mypage_product_favorites">★イイね！<%= amount_of_favorites_with_product(product.id) %></div>
+      </div>
+    </div>
+    <div class="mypage_product_description">
+      <%= product.description %>
+    </div>
+  </div>
+  <div class="edit_delete_link">
+    <div><%= button_to "編集", edit_product_path(product) %></div>
+    <div><%= button_to "削除", product, method: :delete %></div>
+  </div>
+</div>
+<% end %>

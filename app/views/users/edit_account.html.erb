@@ -1,26 +1,23 @@
-<h2>プロフィール編集</h2>
-
-<%= form_with model: @user, url: users_account_update_path, method: :patch do |f| %>
+<div class="edit_user_page">
   <%= render "layouts/error_messages", model: @user %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+  <div class="edit_user_message">プロフィールを編集してください</div>
+  <div class="edit_user_informations">
+    <%= form_with model: @user, url: users_account_update_path, method: :patch do |f| %>
+      <div>
+        <%= f.label :name %><br>
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+      <div>
+        <%= f.label :profile %><br>
+        <%= f.text_area :profile, class: "profile_text_field" %>
+      </div>
+      <div>
+        <%= f.label :image %><br>
+        <%= f.file_field :image %>
+      </div>
+      <div>
+        <%= f.submit "更新" %>
+      </div>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :profile %><br />
-    <%= f.text_field :profile, size: 40 %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image %><br />
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "更新" %>
-  </div>
-<% end %>
-
-<%= link_to "戻る", 'javascript:history.back()' %>
+</div>
