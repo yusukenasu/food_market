@@ -336,10 +336,6 @@ a {
       justify-content: center;
       row-gap: 15px;
     }
-
-    .registration_login_guestlogin_button{
-      
-    }
   }
 
 /*ボディ*/
@@ -871,6 +867,38 @@ textarea{
   .profile_text_field{
     width: 90%;
   }
+}
+
+/*アカウント設定変更画面*/
+.account_edit_page{
+  padding: 20px;
+}
+
+.account_edit_error_messages{
+  font-size: 15px;
+}
+
+.account_edit_error_messages h2{
+  font-size: 15px;
+}
+
+.account_edit_subtitle{
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 0.5px solid lightgray;
+}
+
+.account_delete_subtitle{
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 0.5px solid lightgray;
+  padding-top: 15px;
+}
+
+.account_delete_button{
+  border: 1px solid darkgray;
+  background-color: whitesmoke;
+  border-radius: 2px;
 }
 
 /*検索結果画面*/
