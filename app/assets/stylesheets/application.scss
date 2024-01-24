@@ -874,11 +874,11 @@ textarea{
   padding: 20px;
 }
 
-.account_edit_error_messages{
+.error_messages{
   font-size: 15px;
 }
 
-.account_edit_error_messages h2{
+.error_messages h2{
   font-size: 15px;
 }
 
@@ -899,6 +899,17 @@ textarea{
   border: 1px solid darkgray;
   background-color: whitesmoke;
   border-radius: 2px;
+}
+
+/*アカウント新規登録画面*/
+.account_registration_page{
+  padding: 20px;
+}
+
+.account_registration_subtitle{
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 0.5px solid lightgray;
 }
 
 /*検索結果画面*/
