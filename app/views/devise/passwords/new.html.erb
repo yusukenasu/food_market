@@ -1,5 +1,5 @@
-<div class="password_reset_page">
-  <div class="password_reset_subtitle">パスワードを再設定しますか?</div>
+<div class="non_responsive_pages">
+  <h2>パスワードを再設定しますか?</h2>
   ※再設定用のフォームを入力したメールアドレスに送信します。
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>

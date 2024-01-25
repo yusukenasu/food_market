@@ -14,6 +14,26 @@
 @import "bootstrap";
 
 /*共通*/
+h1{
+  text-align: center;
+  font-size: 24px;
+  margin: 50px;
+}
+
+h2{
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 0.5px solid lightgray;
+}
+
+h3{
+  font-size: 15px;
+}
+
+.non_responsive_pages{
+  padding: 20px;
+}
+
 button {
   background-color: transparent; 
   border: none;
@@ -22,6 +42,21 @@ button {
 
 a {
   text-decoration: none;
+}
+
+textarea{
+  width: 80%;
+  max-width: 600px;
+  height: 100px;
+  resize: vertical;
+}
+
+/*　共通（スマホ用480px以下）*/
+@media screen and (max-width: 480px) {
+  h1{
+    font-size: 20px;
+    margin: 40px;
+  }
 }
 
 /*ヘッダー*/
@@ -96,7 +131,6 @@ a {
   }
   
   .title_logo{
-    font-family: 'Arial Black';
     font-size: 24px;
     padding: 8px;
   }
@@ -115,7 +149,6 @@ a {
   }
   
   .title_logo{
-    font-family: 'Arial Black';
     font-size: 18px;
     padding: 8px;
   }
@@ -127,17 +160,11 @@ a {
 }
 
 /*FV*/
-.index_title{
-  text-align: center;
-  font-size: 24px;
-  margin: 50px;
-}
-
 .index_title_br{
   display: none;
 }
 
-.firstview_menu_container{
+.firstview_container{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -152,7 +179,7 @@ a {
   width: 70%;
 }
 
-.registration_container{
+.firstview_registration_container{
   display: flex;
   justify-content: center;
   padding: 5px;
@@ -183,14 +210,14 @@ a {
   margin: 30px;
 }
 
-.product_images{
+.firstview_product_images{
   max-width: 90px;
   height: auto;
 }
 
 .firstview_middle_container_image{
-  max-width: 70px; /* 親要素に合わせて最大幅を設定 */
-  height: auto; /* アスペクト比を維持したまま高さを自動調整 */
+  max-width: 70px;
+  height: auto;
 }
 
 .firstview_lower_container{
@@ -200,12 +227,12 @@ a {
   width: 70%;
 }
 
-.search_form_firstview{
+.firstview_search_form{
   font-size: 25px;
   padding: 10px;
 }
 
-.search_form_firstview input{
+.firstview_search_form input{
   padding: 6px;
   border-radius: 30px;
 }
@@ -265,7 +292,7 @@ a {
     width: 60%;
   }
   
-  .product_images{
+  .firstview_product_images{
     max-width: 23%;
     height: auto;
   }
@@ -275,7 +302,7 @@ a {
     height: auto;
   }
  
-  .search_form_firstview{
+  .firstview_search_form{
     font-size: 15px;
     padding: 5px;
   }
@@ -295,11 +322,6 @@ a {
 
 	/* FV（スマホ用480px以下）*/
   @media screen and (max-width: 480px) {
-    .index_title{
-      font-size: 20px;
-      margin: 20px;
-    }
-
     .registration_new_product{
       font-size: 10pt;
       font-weight: bold;
@@ -316,18 +338,18 @@ a {
       width: 40%;
     }
 
-    .product_images{
+    .firstview_product_images{
       max-width: 48%;
       height: auto;
     }
 
-    .search_form_firstview{
+    .firstview_search_form{
       font-size: 10px;
       padding: 2px;
     }
 
     /*ログアウト画面*/
-    .registration_container{
+    .firstview_registration_container{
       font-size: 12px;
     }
 
@@ -337,10 +359,6 @@ a {
       row-gap: 15px;
     }
   }
-
-/*ボディ*/
-body{
-}
 
 /*商品詳細画面*/
 .product_container{
@@ -618,47 +636,6 @@ body{
   }
 }
 
-/*商品登録画面*/
-.product_registration_page{
-  width: 50%;
-  padding: 20px;
-}
-
-.product_registration_page_message1{
-  font-size: 24px;
-}
-
-.product_registration_page_message2{
-  font-size: 15px;
-}
-
-textarea{
-  width: 90%;
-}
-
-/*商品登録画面（タブレット用960px以下）*/
-@media screen and (max-width: 960px) {
-  .product_registration_page{
-    width: 70%;
-  }
-}
-
-/*商品登録画面（スマホ用480px以下）*/
-@media screen and (max-width: 480px) {
-  .product_registration_page{
-    width: 100%;
-  }
-
-  .product_registration_page_message1{
-    font-size: 18px;
-  }
-  
-  .product_registration_page_message2{
-    font-size: 15px;
-  }
-
-}
-
 /*マイページ*/
 .mypage_user_section{
   display: flex;
@@ -826,84 +803,15 @@ textarea{
   }
 }
 
-/*プロフィール編集画面*/
-.edit_user_page{
-  padding: 20px;
-}
-
-.edit_user_subtitle{
-  font-size: 18px;
-  font-weight: 600;
-  border-bottom: 0.5px solid lightgray;
-}
-
-.profile_text_field{
-  max-width: 500px;
-}
-
 /*アカウント設定変更画面*/
-.account_edit_page{
-  padding: 20px;
-}
-
 .error_messages{
   font-size: 15px;
-}
-
-.error_messages h2{
-  font-size: 15px;
-}
-
-.account_edit_subtitle{
-  font-size: 18px;
-  font-weight: 600;
-  border-bottom: 0.5px solid lightgray;
-}
-
-.account_delete_subtitle{
-  font-size: 18px;
-  font-weight: 600;
-  border-bottom: 0.5px solid lightgray;
-  padding-top: 15px;
 }
 
 .account_delete_button{
   border: 1px solid darkgray;
   background-color: whitesmoke;
   border-radius: 2px;
-}
-
-/*アカウント新規登録画面*/
-.account_registration_page{
-  padding: 20px;
-}
-
-.account_registration_subtitle{
-  font-size: 18px;
-  font-weight: 600;
-  border-bottom: 0.5px solid lightgray;
-}
-
-/*ログイン画面*/
-.login_page{
-  padding: 20px;
-}
-
-.login_subtitle{
-  font-size: 18px;
-  font-weight: 600;
-  border-bottom: 0.5px solid lightgray;
-}
-
-/*パスワードの再設定画面*/
-.password_reset_page{
-  padding: 20px;
-}
-
-.password_reset_subtitle{
-  font-size: 18px;
-  font-weight: 600;
-  border-bottom: 0.5px solid lightgray;
 }
 
 /*検索結果画面*/

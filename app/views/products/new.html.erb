@@ -1,6 +1,6 @@
-<div class="product_registration_page">
-  <div class="product_registration_page_message1">商品情報を登録しよう！</div>
-  <div class="product_registration_page_message2">※は必須項目です</div><br>
+<div class="non_responsive_pages">
+  <p>※は必須項目です</p>
+  <h2>商品情報</h2>
   <%= form_with model: @product do |f| %>
   <div class="product_information">
     <div>
@@ -21,7 +21,7 @@
     </div>
     <div>
       <%= f.label :商品の評価 %><br>
-      <%= f.text_area :description, size: "40x5", placeholder: "140文字以内" %>
+      <%= f.text_area :description, placeholder: "140文字以内" %>
     </div>
     <div>
       <%= f.label :商品画像 %><br/>
@@ -32,7 +32,8 @@
     </div>
   </div>
   <div class="product_score">
-    <br>【商品の評価 ※】
+    <br>
+    <h2>商品の評価 ※</h2>
     <div>
       <%= f.label :コスパ %><br>
       <%= f.select :point_of_reasonability, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
