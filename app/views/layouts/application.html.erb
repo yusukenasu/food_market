@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FoodMarket</title>
+    <title>Tasty Network</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,37 +12,47 @@
   </head>
 
   <header class="sticky-top">
-  <div class="header">
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark text-white">
-      <div class="mr-auto">
-        <%= link_to 'Food Market', products_path %>
-      </div>
-      <% if user_signed_in? %>
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-            <%= @user.name %>      
-          </button>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton1">
-            <button class="dropdown-item" type="button"><%= link_to "マイページ", users_home_path %></button>
-            <button class="dropdown-item" type="button"><%= link_to "プロフィール編集", users_edit_account_path %></button>
-            <button class="dropdown-item" type="button"><%= link_to "アカウント設定変更", edit_user_registration_path %></button>
-            <button class="dropdown-item" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
+    <div class="header_container">
+      <nav class="navbar">
+        <div class="logo_search_container">
+          <div class="title_logo">
+            <%= link_to 'Tasty Network', products_path %>
+          </div>
+          <div class="search_form">
+            <%= form_with url: products_search_path, method: :get, local: true do |f| %>
+              <%= f.text_field :word %>
+              <%= f.submit "検索" %>
+            <% end %>
           </div>
         </div>
-      <% else %>
-        <div class="sign_up_in">  
-          <div><%= link_to "新規登録", new_user_registration_path %></li>
-          <div><%= link_to "ログイン", new_user_session_path %></li>
-          <div><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "login" %></div>
-        </div>
-      <% end %>
-    </nav>
-  </div>
-</header>
+        <% if user_signed_in? %>
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+              <div class="user_image">
+                <% if current_user.image.present? %>
+                  <%= image_tag current_user.image.variant(resize: "30x30") %>
+                <% else %>
+                  <%= image_tag 'user_img.png', size: "30x30" %>
+                <% end %>
+              </div>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <div class="user_name">
+                <%= @user.name %>
+              </div>
+              <button class="dropdown-item" type="button"><%= link_to "マイページ", users_home_path %></button>
+              <button class="dropdown-item" type="button"><%= link_to "プロフィール編集", users_edit_account_path %></button>
+              <button class="dropdown-item" type="button"><%= link_to "アカウント設定変更", edit_user_registration_path %></button>
+              <button class="dropdown-item" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
+            </div>
+          </div>
+        <% else %>
+        <% end %>
+      </nav>
+    </div>
+  </header>
 
   <body>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>

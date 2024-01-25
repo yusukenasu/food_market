@@ -5,7 +5,7 @@ class Product < ApplicationRecord
   validates :name, presence: true
   validates :manufacturer, presence: true
   validates :price, presence: true, numericality: {only_integer: true, greater_than: 0}
-  validates :description, length: {maximum: 200}
+  validates :description, length: {maximum: 140}
   validates :point_of_reasonability, presence: true, numericality: { in: 1..5 }
   validates :point_of_impression, presence: true, numericality: { in: 1..5 }
   validates :point_of_taste, presence: true, numericality: { in: 1..5 }

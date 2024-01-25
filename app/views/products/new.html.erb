@@ -1,7 +1,7 @@
-<h2>商品情報を登録しよう！</h2>
-<p>※は必須項目です</p>
-
-<%= form_with model: @product do |f| %>
+<div class="non_responsive_pages">
+  <p>※は必須項目です</p>
+  <h2>商品情報</h2>
+  <%= form_with model: @product do |f| %>
   <div class="product_information">
     <div>
       <%= f.label :"商品名 ※"%><br>
@@ -17,11 +17,11 @@
     </div>
     <div>
       <%= f.label :カテゴリー %><br>
-      <%= f.text_field :category %>
+      <%= f.text_field :category, placeholder: "鍋つゆ、ドレッシング等"  %>
     </div>
     <div>
-      <%= f.label :商品説明 %><br>
-      <%= f.text_area :description, size: "40x5", placeholder: "200文字以内" %>
+      <%= f.label :商品の評価 %><br>
+      <%= f.text_area :description, placeholder: "140文字以内" %>
     </div>
     <div>
       <%= f.label :商品画像 %><br/>
@@ -32,7 +32,8 @@
     </div>
   </div>
   <div class="product_score">
-    <p>【商品の評価 ※】</p>
+    <br>
+    <h2>商品の評価 ※</h2>
     <div>
       <%= f.label :コスパ %><br>
       <%= f.select :point_of_reasonability, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
@@ -54,9 +55,8 @@
       <%= f.select :point_of_design, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
     </div>
   </div>
-  <div>
+  <div><br>
     <%= f.submit %>
   </div>
-<% end %>
-
-<%= link_to "戻る", 'javascript:history.back()' %>
+  <% end %>
+</div>
