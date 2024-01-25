@@ -1,6 +1,6 @@
 <div class="edit_user_page">
   <%= render "layouts/error_messages", model: @user %>
-  <div class="edit_user_message">プロフィールを編集してください</div>
+  <div class="edit_user_subtitle">プロフィール編集</div>
   <div class="edit_user_informations">
     <%= form_with model: @user, url: users_account_update_path, method: :patch do |f| %>
       <div>

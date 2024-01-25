@@ -828,45 +828,17 @@ textarea{
 
 /*プロフィール編集画面*/
 .edit_user_page{
-  width: 50%;
   padding: 20px;
 }
 
-.edit_user_message{
-  font-size: 24px;
-  margin-bottom: 20px;
+.edit_user_subtitle{
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 0.5px solid lightgray;
 }
 
 .profile_text_field{
-  width: 100%;
-}
-
-
-/*プロフィール編集画面（タブレット用960px以下）*/
-@media screen and (max-width: 960px) {
-  .edit_user_page{
-    width: 70%;
-  }
-
-  .edit_user_message{
-    font-size: 18px;
-  }
-}
-
-/*プロフィール編集画面（スマホ用480px以下）*/
-@media screen and (max-width: 480px) {
-  .edit_user_page{
-    width: 100%;
-    padding: 10px;
-  }
-
-  .edit_user_message{
-    font-size: 18px;
-  }
-
-  .profile_text_field{
-    width: 90%;
-  }
+  max-width: 500px;
 }
 
 /*アカウント設定変更画面*/
