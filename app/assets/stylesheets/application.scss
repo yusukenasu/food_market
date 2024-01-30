@@ -160,7 +160,7 @@ textarea{
 }
 
 /*FV*/
-.index_title_br{
+.firstview_title_br{
   display: none;
 }
 
@@ -179,13 +179,7 @@ textarea{
   width: 70%;
 }
 
-.firstview_registration_container{
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-}
-
-.registration_new_product{
+.firstview_registration_product_button{
   text-decoration-line: none;
   text-decoration: none;
   color: white;
@@ -238,17 +232,23 @@ textarea{
 }
 
 /*ログアウト画面*/
-.index_message_br{
+.firstview_registration_message{
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.firstview_message_br{
   display: none;
 }
 
-.registration_login_guestlogin_container{
+.firstview_loggedout_buttons_container{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.registration_login_guestlogin_button{
+.firstview_loggedout_buttons{
   text-decoration-line: none;
   text-decoration: none;
   color: white;
@@ -262,7 +262,7 @@ textarea{
 
 /* FV（タブレット用959px以下）*/
 @media screen and (max-width: 959px) {
-  .index_title_br{
+  .firstview_title_br{
     display: block;
   }
 
@@ -270,7 +270,7 @@ textarea{
     width: 90%;
   }
 
-  .registration_new_product{
+  .firstview_registration_product_button{
     font-size: 14pt;
     padding: 10px 20px;
     border-radius: 30px;
@@ -308,11 +308,11 @@ textarea{
   }
 
   /*ログアウト画面*/
-  .index_message_br{
+  .firstview_message_br{
     display: block;
   }
 
-  .registration_login_guestlogin_button{
+  .firstview_loggedout_buttons{
     font-size: 10pt;
     font-weight: bold;
     margin: 2px;
@@ -322,7 +322,7 @@ textarea{
 
 	/* FV（スマホ用480px以下）*/
   @media screen and (max-width: 480px) {
-    .registration_new_product{
+    .firstview_registration_product_button{
       font-size: 10pt;
       font-weight: bold;
       padding: 10px 15px;
@@ -349,11 +349,11 @@ textarea{
     }
 
     /*ログアウト画面*/
-    .firstview_registration_container{
+    .firstview_registration_message{
       font-size: 12px;
     }
 
-    .registration_login_guestlogin_container{
+    .firstview_loggedout_buttons_container{
       flex-wrap: wrap;
       justify-content: center;
       row-gap: 15px;

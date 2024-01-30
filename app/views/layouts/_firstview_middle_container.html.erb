@@ -1,0 +1,17 @@
+<div class="firstview_middle_container">
+  <div>
+    <%= image_tag "firstview_arrow1_image.png", class: "firstview_middle_container_image" %>
+  </div>
+  <div class="firstview_product_images_container">
+    <div>
+      <% random_products.first(5).each do |product| %>
+        <%= link_to product do %>
+          <% image_tag product.image, class: "firstview_product_images" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <%= image_tag "firstview_arrow2_image.png", class: "firstview_middle_container_image" %>
+  </div>
+</div>
