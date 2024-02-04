@@ -5,8 +5,14 @@
   <div class="firstview_product_images_container">
     <div>
       <% random_products.first(5).each do |product| %>
-        <%= link_to product do %>
-          <% image_tag product.image, class: "firstview_product_images" %>
+        <% if user_signed_in? %> 
+          <%= link_to product do %>
+            <% image_tag product.image, class: "firstview_product_images" %>
+          <% end %>
+        <% else %>
+          <%= link_to "" do %>
+            <% image_tag product.image, class: "firstview_product_images" %>
+          <% end %>
         <% end %>
       <% end %>
     </div>

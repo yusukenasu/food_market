@@ -1,0 +1,42 @@
+<div class="product_raderchart_container">
+  <canvas id="myChart"></canvas>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    var reasonability = gon.reasonability;
+    var impression = gon.impression;
+    var taste = gon.taste;
+    var repeatability = gon.repeatability;
+    var design = gon.design;
+    var ctx = document.getElementById('myChart');
+    var myChart = new Chart(ctx, {
+      type: 'radar',
+      data: {
+        labels: ['コスパ', '特徴', '味', 'リピート', 'デザイン'],
+        datasets: [{
+            label: '# of Votes',
+            data: [reasonability, impression, taste, repeatability, design],
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          r: {
+            max: 5,
+            min: 0,
+            ticks: {
+              stepSize: 1,
+              display: false
+            }
+          }
+        },
+        plugins: {
+          legend: {
+            display: false
+          }
+        }
+      }
+  });
+  </script>
+</div>

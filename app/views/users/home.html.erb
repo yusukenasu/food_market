@@ -34,7 +34,7 @@
     </div>
   </div>
   <div class="edit_delete_link">
-    <div><%= button_to "編集", edit_product_path(product) %></div>
+    <div><%= button_to "編集", edit_product_path(product), method: :get %></div>
     <div><%= button_to "削除", product, method: :delete %></div>
   </div>
 </div>

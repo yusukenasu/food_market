@@ -8,75 +8,11 @@
         <%= render "favorites/favorite", product: @product %>
       </div>
     </div>
-    <div class="product_detail_container">
-      <div class="product_detail_name"><%= @product.name %></div>
-      <div class="product_detail_manufacturer"><%= @product.manufacturer %></div>
-      <div class="product_detail_price">¥<%= @product.price %>（税込）</div>
-      <div class="product_detail_category">カテゴリ：<%= @product.category %></div>
-    </div>
+    <%= render "layouts/product_details", product: @product %>
   </div>
   <div class="product_score_container">
-    <div class="product_starscore_container">
-      <table>
-        <tr>
-          <th>コスパ</th><td><%= item_score(@product.point_of_reasonability) %></td>
-        </tr>
-        <tr>
-          <th>特徴的</th><td><%= item_score(@product.point_of_impression) %></td>
-        </tr>
-        <tr>
-          <th>味</th><td><%= item_score(@product.point_of_taste) %></td>
-        </tr>
-        <tr>
-          <th>リピート性</th><td><%= item_score(@product.point_of_repeatability) %></td>
-        </tr>
-        <tr>
-          <th>デザイン性</th><td><%= item_score(@product.point_of_design) %></td>
-        </tr>
-      </table>
-    </div>
-    <div class="product_raderchart_container">
-      <canvas id="myChart"></canvas>
-      <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      <script>
-        var reasonability = gon.reasonability;
-        var impression = gon.impression;
-        var taste = gon.taste;
-        var repeatability = gon.repeatability;
-        var design = gon.design;
-        var ctx = document.getElementById('myChart');
-        var myChart = new Chart(ctx, {
-          type: 'radar',
-          data: {
-            labels: ['コスパ', '特徴', '味', 'リピート', 'デザイン'],
-            datasets: [{
-                label: '# of Votes',
-                data: [reasonability, impression, taste, repeatability, design],
-                backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                borderColor: 'rgba(255, 99, 132, 1)',
-                borderWidth: 1
-            }]
-          },
-          options: {
-            scales: {
-              r: {
-                max: 5,
-                min: 0,
-                ticks: {
-                  stepSize: 1,
-                  display: false
-                }
-              }
-            },
-            plugins: {
-              legend: {
-                display: false
-              }
-            }
-          }
-      });
-      </script>
-    </div>
+    <%= render "layouts/product_score", product: @product %>
+    <%= render "layouts/product_raderchart" %>
   </div>
 </div>
 <div class="contributor_container">

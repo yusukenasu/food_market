@@ -29,7 +29,7 @@
       <div class="firstview_loggedout_buttons_container">
         <div><%= link_to "新規登録", new_user_registration_path, class: "firstview_loggedout_buttons" %></div>
         <div><%= link_to "ログイン", new_user_session_path, class: "firstview_loggedout_buttons" %></div>
-        <div><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: "firstview_loggedout_buttons" %></div>
+        <div><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :get, class: "firstview_loggedout_buttons" %></div>
       </div>
     </div>
     <%= render "layouts/firstview_middle_container", random_products: @random_products %>
