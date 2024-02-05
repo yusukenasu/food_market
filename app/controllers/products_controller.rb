@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   def index
     @user = current_user
-    @products = Product.all
-    @random_products = Product.order("RAND()").limit(10)
+    @products = Product.all.includes(:user)
+    @random_products = Product.order("RAND()").limit(5).includes(:user)
     if user_signed_in?
       @user_products = @user.products
     end

@@ -36,20 +36,3 @@
     <%= render "layouts/firstview_lower_container" %>
   </div>
 <% end %>
-
-<!--以下、テストデータ削除用
-<% @products.each do |product| %>
-  <table>
-    <tr>
-      <td>
-        <%= product.name %>
-        <%= button_to "削除", product, method: :delete %>
-        <% if product.image.present? %>
-          <%= image_tag product.image.variant(resize: "100x100") %>
-        <% else %>
-          <%= image_tag 'user_img.png', size: "100x100" %>
-        <% end %>
-      </td>
-    </tr>
-  </table>
-<% end %>-->
