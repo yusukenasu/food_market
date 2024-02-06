@@ -869,7 +869,7 @@ textarea{
   padding: 0 10px;
 }
 
-.searched_container_user_section{
+.searched_container_contributor_section{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -877,16 +877,16 @@ textarea{
   padding: 20px;
 }
 
-.searched_user_image{
+.searched_contributor_image{
   max-width: 80px;
   height: auto;
 }
 
-.searched_user_rank{
+.searched_contributor_rank{
   font-size: 12px;
 }
 
-.searched_user_name{
+.searched_contributor_name{
   font-size: 12px;
 }
 
@@ -914,20 +914,20 @@ textarea{
     width: 100%;
   }
 
-  .searched_container_user_section{
+  .searched_container_contributor_section{
     justify-content: center;
     padding: 10px;
   }
 
-  .searched_user_image{
+  .searched_contributor_image{
     max-width: 60px;
   }
   
-  .searched_user_rank{
+  .searched_contributor_rank{
     font-size: 12px;
   }
   
-  .searched_user_name{
+  .searched_contributor_name{
     font-size: 12px;
   }
 }
@@ -967,19 +967,19 @@ textarea{
     margin: 5px 5px 5px 0;
   }
 
-  .searched_container_user_section{
+  .searched_container_contributor_section{
     padding: 5px;
   }
 
-  .searched_user_image{
+  .searched_contributor_image{
     max-width: 40px;
   }
   
-  .searched_user_rank{
+  .searched_contributor_rank{
     font-size: 5px;
   }
   
-  .searched_user_name{
+  .searched_contributor_name{
     font-size: 5px;
   }
 }

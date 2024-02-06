@@ -9,8 +9,8 @@
         <%= link_to "商品情報を登録する", new_product_path, class: "firstview_registration_product_button" %>
       </div>
     </div>
-    <%= render "layouts/firstview_middle_container", random_products: @random_products %>
-    <%= render "layouts/firstview_lower_container" %>
+    <%= render "layouts/index/firstview_middle_container", random_products: @random_products %>
+    <%= render "layouts/index/firstview_lower_container" %>
   </div>
 <% else %>
   <div class="firstview_registration_message">
@@ -32,7 +32,7 @@
         <div><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :get, class: "firstview_loggedout_buttons" %></div>
       </div>
     </div>
-    <%= render "layouts/firstview_middle_container", random_products: @random_products %>
-    <%= render "layouts/firstview_lower_container" %>
+    <%= render "layouts/index/firstview_middle_container", random_products: @random_products %>
+    <%= render "layouts/index/firstview_lower_container" %>
   </div>
 <% end %>

@@ -1,0 +1,5 @@
+<div class="searched_container_contributor_section">
+  <div><%= image_tag product.user.image, class: "searched_contributor_image" %></div>
+  <div class="searched_contributor_rank"><%= user_rank(product.user) %>(Lv.<%= amount_of_favorites_with_user(product.user) + 1 %>)</div>
+  <div class="searched_contributor_name"><%= product.user.name %></div>
+</div>

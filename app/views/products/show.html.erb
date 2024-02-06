@@ -8,11 +8,11 @@
         <%= render "favorites/favorite", product: @product %>
       </div>
     </div>
-    <%= render "layouts/product_details", product: @product %>
+    <%= render "layouts/show/product_details", product: @product %>
   </div>
   <div class="product_score_container">
-    <%= render "layouts/product_score", product: @product %>
-    <%= render "layouts/product_raderchart" %>
+    <%= render "layouts/show/product_score", product: @product %>
+    <%= render "layouts/show/product_raderchart" %>
   </div>
 </div>
 <div class="contributor_container">
@@ -30,6 +30,6 @@
 <div class="rakuten_api">
   ⇩楽天市場で商品を探す⇩
   <% if @items.present? %>
-    <%= render 'layouts/item' %>
+    <%= render 'layouts/show/item' %>
   <% end %>
 </div>

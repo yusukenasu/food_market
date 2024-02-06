@@ -6,20 +6,11 @@
           <%= link_to product do %>
             <%= image_tag product.image, class: "searched_product_image" %>
           <% end %>
-          <div class="searched_product_information">
-            <div class="searched_product_name"><%= product.name %></div>
-            <div class="searched_product_manufacturer"><%= product.manufacturer %></div>
-            <div class="searched_product_price">¥<%= product.price%>円(税込)</div>
-            <div class="searched_product_category"><%= product.category %></div>
-          </div>
+          <%= render "layouts/search/product_information", product: product %>
         </div>
         <div class="searched_product_description"><%= product.description %></div>
       </div>
-      <div class="searched_container_user_section">
-        <div><%= image_tag product.user.image, class: "searched_user_image" %></div>
-        <div class="searched_user_rank"><%= user_rank(product.user) %>(Lv.<%= amount_of_favorites_with_user(product.user) + 1 %>)</div>
-        <div class="searched_user_name"><%= product.user.name %></div>
-      </div>
+      <%= render "layouts/search/searched_contributor", product: product %>
     </div>
   <% end %>
 <% else %>
@@ -34,19 +25,10 @@
     <div class="searched_container_product_section">
       <div class="searched_product_container">
         <%= image_tag product.image, class: "searched_product_image" %>
-        <div class="searched_product_information">
-          <div class="searched_product_name"><%= product.name %></div>
-          <div class="searched_product_manufacturer"><%= product.manufacturer %></div>
-          <div class="searched_product_price">¥<%= product.price%>円(税込)</div>
-          <div class="searched_product_category"><%= product.category %></div>
-        </div>
+        <%= render "layouts/search/product_information", product: product %>
       </div>
     </div>
-    <div class="searched_container_user_section">
-      <div><%= image_tag product.user.image, class: "searched_user_image" %></div>
-      <div class="searched_user_rank"><%= user_rank(product.user) %>(Lv.<%= amount_of_favorites_with_user(product.user) + 1 %>)</div>
-      <div class="searched_user_name"><%= product.user.name %></div>
-    </div>
+    <%= render "layouts/search/searched_contributor", product: product %>
   </div>
   <% end %>
 <% end %>
