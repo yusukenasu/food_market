@@ -3,20 +3,11 @@ class ProductsController < ApplicationController
     @user = current_user
     @products = Product.all.includes(:user)
     @random_products = Product.order("RAND()").limit(5).includes(:user)
-    if user_signed_in?
-      @user_products = @user.products
-    end
-  end
-
-  def new
-    @user = current_user
-    @product = Product.new
   end
 
   def show
     @user = current_user
     @product = Product.find(params[:id])
-    @contributor = @product.user
     gon.reasonability = @product.point_of_reasonability
     gon.impression = @product.point_of_impression
     gon.taste = @product.point_of_taste
@@ -25,11 +16,16 @@ class ProductsController < ApplicationController
     @items = RakutenWebService::Ichiba::Item.search(keyword: "#{@product.name} #{@product.manufacturer}")
   end
 
+  def new
+    @user = current_user
+    @product = Product.new
+  end
+
   def create
     @user = current_user
     @product = Product.new(product_params)
     if @product.save
-      redirect_to products_path
+      redirect_to product_path(@product)
     else
       render :new
     end
@@ -44,16 +40,16 @@ class ProductsController < ApplicationController
     @user = current_user
     @product = Product.find(params[:id])
     if @product.update(product_params)
-      redirect_to :product
+      redirect_to product_path
     else
-      render "edit"
+      render :edit
     end
   end
 
   def destroy
     @product = Product.find(params[:id])
     @product.destroy
-    redirect_to :products
+    redirect_to users_home_path
   end 
 
   def search
