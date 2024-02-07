@@ -1,7 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
-  has_one_attached :image
+  has_one_attached :image, dependent: :destroy
+
   validates :name, presence: true
   validates :manufacturer, presence: true
   validates :price, presence: true, numericality: {only_integer: true, greater_than: 0}
