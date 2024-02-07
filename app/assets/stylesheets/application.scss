@@ -51,6 +51,13 @@ textarea{
   resize: vertical;
 }
 
+.notice{
+  text-align: center;
+  margin: 5px;
+  font-size: 15px;
+  background-color: lightgray;
+}
+
 /*　共通（スマホ用480px以下）*/
 @media screen and (max-width: 480px) {
   h1{
