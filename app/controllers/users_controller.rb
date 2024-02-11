@@ -1,21 +1,17 @@
 class UsersController < ApplicationController
   def home
-    @user = current_user
-    if user_signed_in?
-      @user_products = @user.products
-    end
   end
 
-  def edit_account
+  def edit_profile
     @user = current_user
   end
 
-  def account_update
+  def profile_update
     @user = current_user
     if @user.update(user_params)
       redirect_to users_home_path
     else
-      render "users/edit_account", status: :unprocessable_entity
+      render :edit_profile, status: :unprocessable_entity
     end
   end
   

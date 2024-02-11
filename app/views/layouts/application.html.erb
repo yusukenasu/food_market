@@ -41,7 +41,7 @@
                 <%= current_user.name %>
               </div>
               <button class="dropdown-item" type="button"><%= link_to "マイページ", users_home_path %></button>
-              <button class="dropdown-item" type="button"><%= link_to "プロフィール編集", users_edit_account_path %></button>
+              <button class="dropdown-item" type="button"><%= link_to "プロフィール編集", users_edit_profile_path %></button>
               <button class="dropdown-item" type="button"><%= link_to "アカウント設定変更", edit_user_registration_path %></button>
               <button class="dropdown-item" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
             </div>

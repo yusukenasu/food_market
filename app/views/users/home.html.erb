@@ -15,7 +15,7 @@
   </div>
 </div>
 <div class="mypage_product_index_message">登録商品一覧</div>
-<% @user_products.each do |product| %>
+<% current_user.products.each do |product| %>
 <div class="mypage_product_section">
   <div class="mypage_product_container">
     <div class="mypage_product_image_container">
