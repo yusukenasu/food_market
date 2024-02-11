@@ -1,12 +1,10 @@
 class ProductsController < ApplicationController
   def index
-    @user = current_user
     @products = Product.all.includes(:user)
     @random_products = Product.order("RAND()").limit(5).includes(:user)
   end
 
   def show
-    @user = current_user
     @product = Product.find(params[:id])
     gon.reasonability = @product.point_of_reasonability
     gon.impression = @product.point_of_impression
@@ -17,12 +15,10 @@ class ProductsController < ApplicationController
   end
 
   def new
-    @user = current_user
     @product = Product.new
   end
 
   def create
-    @user = current_user
     @product = Product.new(product_params)
     if @product.save
       redirect_to product_path(@product)
@@ -32,12 +28,10 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @user = current_user
     @product = Product.find(params[:id])
   end
 
   def update
-    @user = current_user
     @product = Product.find(params[:id])
     if @product.update(product_params)
       redirect_to product_path
@@ -53,7 +47,6 @@ class ProductsController < ApplicationController
   end 
 
   def search
-    @user = current_user
     @searched_products = Product.looks(params[:word])
   end
 

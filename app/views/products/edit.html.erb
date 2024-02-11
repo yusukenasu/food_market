@@ -1,4 +1,4 @@
 <div class="non_responsive_pages">
   <p>商品情報を編集してください<br>※は必須項目です</p>
-  <%= render "layouts/product_form", product: @product, user: @user %>
+  <%= render "layouts/product_form", product: @product, user: current_user %>
 </div>
