@@ -6,13 +6,7 @@
       <%= image_tag 'user_img.png', class: "mypage_user_image" %>
     <% end %>
   </div>
-  <div class="mypage_user_information_container">
-    <div>ユーザー名：<%= current_user.name %></div>
-    <div>メールアドレス：<%= current_user.email %></div>
-    <div>プロフィール：<%= current_user.profile %></div>
-    <div>ユーザーレベル（★いいね！獲得数）：<%= amount_of_favorites_with_user(current_user.id) %></div>
-    <div>ユーザーランク：<%= user_rank(current_user.id) %></div>
-  </div>
+  <%= render "layouts/mypage_user_information" %>
 </div>
 <div class="mypage_product_index_message">登録商品一覧</div>
 <% current_user.products.each do |product| %>
