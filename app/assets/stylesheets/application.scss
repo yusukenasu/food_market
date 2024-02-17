@@ -58,7 +58,16 @@ textarea{
   background-color: lightgray;
 }
 
-/*　共通（スマホ用480px以下）*/
+.form_group{
+  margin-bottom: 10px;
+}
+
+/*devise共通*/
+.error_messages{
+  font-size: 15px;
+}
+
+/*共通（スマホ用480px以下）*/
 @media screen and (max-width: 480px) {
   h1{
     font-size: 20px;
@@ -711,7 +720,7 @@ textarea{
   padding: 10px;
 }
 
-.edit_delete_link{
+.mypage_product_edit_delete_link{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -720,7 +729,7 @@ textarea{
   padding-left: 10px;
 }
 
-.edit_delete_link button{
+.mypage_product_edit_delete_link button{
   border: 1px solid;
   border-radius: 40px;
   color: white;
@@ -752,11 +761,11 @@ textarea{
     font-size: 12px;
   }
 
-  .edit_delete_link{
+  .mypage_product_edit_delete_link{
     padding: 10px;
   }
 
-  .edit_delete_link button{
+  .mypage_product_edit_delete_link button{
     margin: 10px 0;
   }
 }
@@ -798,12 +807,12 @@ textarea{
     padding: 10px;
   }
 
-  .edit_delete_link{
+  .mypage_product_edit_delete_link{
     width: 20%;
     padding-left: 0;
   }
 
-  .edit_delete_link button{
+  .mypage_product_edit_delete_link button{
     font-size: 12px;
     margin: 5px;
     padding: 2px 8px;
@@ -811,10 +820,6 @@ textarea{
 }
 
 /*アカウント設定変更画面*/
-.error_messages{
-  font-size: 15px;
-}
-
 .account_delete_button{
   border: 1px solid darkgray;
   background-color: whitesmoke;
