@@ -3,7 +3,7 @@
     <div class="searched_container">
       <div class="searched_container_product_section">
         <div class="searched_product_container">
-          <%= link_to product do %>
+          <%= link_to product_path(product) do %>
             <%= image_tag product.image, class: "searched_product_image" %>
           <% end %>
           <%= render "layouts/search/product_information", product: product %>

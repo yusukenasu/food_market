@@ -31,5 +31,7 @@
   ⇩楽天市場で商品を探す⇩
   <% if @items.present? %>
     <%= render 'layouts/show/item' %>
+  <% else %>
+    <p>※関連商品は見つかりませんでした。</p>
   <% end %>
 </div>
