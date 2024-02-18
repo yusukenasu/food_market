@@ -852,8 +852,18 @@ textarea{
   width: 40%;
 }
 
+.searched_product_box{
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+}
+
 .searched_product_image{
-  max-width: 120px;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
   padding: 8px;
 }
@@ -919,10 +929,11 @@ textarea{
     border-bottom: 1px solid lightgray;
   }
 
-  .searched_product_image{
-    max-width: 100px;
+  .searched_product_box{
+    width: 150px;
+    height: 150px;
   }
-
+ 
   .searched_product_description{
     width: 100%;
     margin: 20px 20px 20px 0;
@@ -960,8 +971,9 @@ textarea{
     border-bottom: 0.5px solid lightgray;
   }
 
-  .searched_product_image{
-    max-width: 90px;
+  .searched_product_box{
+    width: 100px;
+    height: 100px;
   }
 
   .searched_product_name{

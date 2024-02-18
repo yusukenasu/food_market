@@ -3,9 +3,11 @@
     <div class="searched_container">
       <div class="searched_container_product_section">
         <div class="searched_product_container">
-          <%= link_to product_path(product) do %>
-            <%= image_tag product.image, class: "searched_product_image" %>
-          <% end %>
+          <div class="searched_product_box">
+            <%= link_to product_path(product) do %>
+              <%= image_tag product.image, class: "searched_product_image" %>
+            <% end %>
+          </div>
           <%= render "layouts/search/product_information", product: product %>
         </div>
         <div class="searched_product_description"><%= product.description %></div>
@@ -24,7 +26,9 @@
   <div class="searched_container">
     <div class="searched_container_product_section">
       <div class="searched_product_container">
-        <%= image_tag product.image, class: "searched_product_image" %>
+        <div class="searched_product_box">
+          <%= image_tag product.image, class: "searched_product_image" %>
+        </div>
         <%= render "layouts/search/product_information", product: product %>
       </div>
     </div>
