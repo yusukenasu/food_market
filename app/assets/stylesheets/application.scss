@@ -701,8 +701,18 @@ textarea{
   align-items: center;
 }
 
+.mypage_product_image_box{
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+}
+
 .mypage_product_image{
-  max-width: 100px;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
 }
 
