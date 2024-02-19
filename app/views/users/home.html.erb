@@ -8,7 +8,7 @@
   </div>
   <%= render "layouts/mypage_user_information" %>
 </div>
-<div class="mypage_product_index_message">登録商品一覧</div>
+<div class="mypage_product_index_message">登録商品一覧（<%= current_user.products.count.to_s %>件登録済）</div>
 <% current_user.products.each do |product| %>
 <div class="mypage_product_section">
   <div class="mypage_product_container">
