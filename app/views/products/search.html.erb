@@ -1,3 +1,10 @@
+<div class="searched_message">
+  <% if @searched_products.count > 0 %>
+    <p><%= @searched_products.count.to_s %>件の商品が見つかりました。</p>
+  <% else %>
+    <p>商品が見つかりませんでした。</p>
+  <% end %>
+</div>
 <% if user_signed_in? %>
   <% @searched_products.each do |product| %>
     <div class="searched_container">
@@ -16,7 +23,7 @@
     </div>
   <% end %>
 <% else %>
-  <div class="registration_container">
+  <div class="searched_message">
     <p>
       <%= link_to "新規登録", new_user_registration_path %>または
       <%= link_to "ログイン", new_user_session_path %>して商品情報を確認しよう！
