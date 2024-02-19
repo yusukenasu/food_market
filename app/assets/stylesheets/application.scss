@@ -51,7 +51,23 @@ textarea{
   resize: vertical;
 }
 
-/*　共通（スマホ用480px以下）*/
+.notice{
+  text-align: center;
+  margin: 5px;
+  font-size: 15px;
+  background-color: lightgray;
+}
+
+.form_group{
+  margin-bottom: 10px;
+}
+
+/*devise共通*/
+.error_messages{
+  font-size: 15px;
+}
+
+/*共通（スマホ用480px以下）*/
 @media screen and (max-width: 480px) {
   h1{
     font-size: 20px;
@@ -160,7 +176,7 @@ textarea{
 }
 
 /*FV*/
-.index_title_br{
+.firstview_title_br{
   display: none;
 }
 
@@ -179,13 +195,7 @@ textarea{
   width: 70%;
 }
 
-.firstview_registration_container{
-  display: flex;
-  justify-content: center;
-  padding: 5px;
-}
-
-.registration_new_product{
+.firstview_registration_product_button{
   text-decoration-line: none;
   text-decoration: none;
   color: white;
@@ -210,8 +220,18 @@ textarea{
   margin: 30px;
 }
 
-.firstview_product_images{
-  max-width: 90px;
+.firstview_product_image_box{
+  display: inline-block;
+  width: 100px;
+  height:100px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.firstview_product_image{
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
 }
 
@@ -238,17 +258,23 @@ textarea{
 }
 
 /*ログアウト画面*/
-.index_message_br{
+.firstview_registration_message{
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+}
+
+.firstview_message_br{
   display: none;
 }
 
-.registration_login_guestlogin_container{
+.firstview_loggedout_buttons_container{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.registration_login_guestlogin_button{
+.firstview_loggedout_buttons{
   text-decoration-line: none;
   text-decoration: none;
   color: white;
@@ -262,7 +288,7 @@ textarea{
 
 /* FV（タブレット用959px以下）*/
 @media screen and (max-width: 959px) {
-  .index_title_br{
+  .firstview_title_br{
     display: block;
   }
 
@@ -270,33 +296,25 @@ textarea{
     width: 90%;
   }
 
-  .registration_new_product{
+  .firstview_registration_product_button{
     font-size: 14pt;
     padding: 10px 20px;
     border-radius: 30px;
   }
 
   .firstview_middle_container{
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 90%;
-    margin: 8px;
   }
 
-  .firstview_product_images_container a:nth-child(n+5){
-    display: none;
-  }
-  
   .firstview_product_images_container{
-    width: 60%;
+    margin: 15px;
   }
   
-  .firstview_product_images{
-    max-width: 23%;
-    height: auto;
+  .firstview_product_image_box{
+    width: 80px;
+    height: 80px;
   }
-
+  
   .firstview_middle_container_image{
     max-width: 40px;
     height: auto;
@@ -308,11 +326,11 @@ textarea{
   }
 
   /*ログアウト画面*/
-  .index_message_br{
+  .firstview_message_br{
     display: block;
   }
 
-  .registration_login_guestlogin_button{
+  .firstview_loggedout_buttons{
     font-size: 10pt;
     font-weight: bold;
     margin: 2px;
@@ -322,7 +340,7 @@ textarea{
 
 	/* FV（スマホ用480px以下）*/
   @media screen and (max-width: 480px) {
-    .registration_new_product{
+    .firstview_registration_product_button{
       font-size: 10pt;
       font-weight: bold;
       padding: 10px 15px;
@@ -335,12 +353,16 @@ textarea{
     }
 
     .firstview_product_images_container{
-      width: 40%;
+      margin: 20px 5px;
     }
-
-    .firstview_product_images{
-      max-width: 48%;
-      height: auto;
+    
+    .firstview_product_image_box{
+      width: 60px;
+      height: 60px;
+    }
+    
+    .firstview_middle_container_image{
+      max-width: 30px;
     }
 
     .firstview_search_form{
@@ -349,11 +371,11 @@ textarea{
     }
 
     /*ログアウト画面*/
-    .firstview_registration_container{
+    .firstview_registration_message{
       font-size: 12px;
     }
 
-    .registration_login_guestlogin_container{
+    .firstview_loggedout_buttons_container{
       flex-wrap: wrap;
       justify-content: center;
       row-gap: 15px;
@@ -679,8 +701,18 @@ textarea{
   align-items: center;
 }
 
+.mypage_product_image_box{
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 100px;
+  height: 100px;
+}
+
 .mypage_product_image{
-  max-width: 100px;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
 }
 
@@ -704,7 +736,7 @@ textarea{
   padding: 10px;
 }
 
-.edit_delete_link{
+.mypage_product_edit_delete_link{
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -713,7 +745,7 @@ textarea{
   padding-left: 10px;
 }
 
-.edit_delete_link button{
+.mypage_product_edit_delete_link button{
   border: 1px solid;
   border-radius: 40px;
   color: white;
@@ -745,11 +777,11 @@ textarea{
     font-size: 12px;
   }
 
-  .edit_delete_link{
+  .mypage_product_edit_delete_link{
     padding: 10px;
   }
 
-  .edit_delete_link button{
+  .mypage_product_edit_delete_link button{
     margin: 10px 0;
   }
 }
@@ -791,12 +823,12 @@ textarea{
     padding: 10px;
   }
 
-  .edit_delete_link{
+  .mypage_product_edit_delete_link{
     width: 20%;
     padding-left: 0;
   }
 
-  .edit_delete_link button{
+  .mypage_product_edit_delete_link button{
     font-size: 12px;
     margin: 5px;
     padding: 2px 8px;
@@ -804,10 +836,6 @@ textarea{
 }
 
 /*アカウント設定変更画面*/
-.error_messages{
-  font-size: 15px;
-}
-
 .account_delete_button{
   border: 1px solid darkgray;
   background-color: whitesmoke;
@@ -815,6 +843,10 @@ textarea{
 }
 
 /*検索結果画面*/
+.searched_message{
+  padding-left: 15px;
+}
+
 .searched_container{
   border: 1px solid lightgray;
   display: flex;
@@ -834,8 +866,18 @@ textarea{
   width: 40%;
 }
 
+.searched_product_box{
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  width: 200px;
+  height: 200px;
+}
+
 .searched_product_image{
-  max-width: 120px;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
   height: auto;
   padding: 8px;
 }
@@ -869,7 +911,7 @@ textarea{
   padding: 0 10px;
 }
 
-.searched_container_user_section{
+.searched_container_contributor_section{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -877,16 +919,16 @@ textarea{
   padding: 20px;
 }
 
-.searched_user_image{
+.searched_contributor_image{
   max-width: 80px;
   height: auto;
 }
 
-.searched_user_rank{
+.searched_contributor_rank{
   font-size: 12px;
 }
 
-.searched_user_name{
+.searched_contributor_name{
   font-size: 12px;
 }
 
@@ -901,10 +943,11 @@ textarea{
     border-bottom: 1px solid lightgray;
   }
 
-  .searched_product_image{
-    max-width: 100px;
+  .searched_product_box{
+    width: 150px;
+    height: 150px;
   }
-
+ 
   .searched_product_description{
     width: 100%;
     margin: 20px 20px 20px 0;
@@ -914,26 +957,30 @@ textarea{
     width: 100%;
   }
 
-  .searched_container_user_section{
+  .searched_container_contributor_section{
     justify-content: center;
     padding: 10px;
   }
 
-  .searched_user_image{
+  .searched_contributor_image{
     max-width: 60px;
   }
   
-  .searched_user_rank{
+  .searched_contributor_rank{
     font-size: 12px;
   }
   
-  .searched_user_name{
+  .searched_contributor_name{
     font-size: 12px;
   }
 }
 
 /*検索結果画面（スマホ用480px以下）*/
 @media screen and (max-width: 480px) {
+  .searched_message{
+    font-size: 12px;
+  }
+
   .searched_container_product_section{
     padding: 5px;
   }
@@ -942,8 +989,9 @@ textarea{
     border-bottom: 0.5px solid lightgray;
   }
 
-  .searched_product_image{
-    max-width: 90px;
+  .searched_product_box{
+    width: 100px;
+    height: 100px;
   }
 
   .searched_product_name{
@@ -967,19 +1015,19 @@ textarea{
     margin: 5px 5px 5px 0;
   }
 
-  .searched_container_user_section{
+  .searched_container_contributor_section{
     padding: 5px;
   }
 
-  .searched_user_image{
+  .searched_contributor_image{
     max-width: 40px;
   }
   
-  .searched_user_rank{
+  .searched_contributor_rank{
     font-size: 5px;
   }
   
-  .searched_user_name{
+  .searched_contributor_name{
     font-size: 5px;
   }
 }

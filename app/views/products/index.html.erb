@@ -1,110 +1,38 @@
-<h1>〜商品開発チームのための<br class="index_title_br">情報共有ネットワーク〜</h1>
-<div class="firstview_container">
-  <% if user_signed_in? %>
-    <div class="firstview_container">
-      <div class="firstview_upper_container">
-        <div>
-          <%= image_tag "smartphone_photo_satsuei_man.png", size: "80x90" %>
-        </div>
-        <div class="firstview_registration_container">
-          <%= link_to "商品情報を登録する", new_product_path, class: "registration_new_product" %>
-        </div>
+<h1>〜商品開発チームのための<br class="firstview_title_br">情報共有ネットワーク〜</h1>
+<% if user_signed_in? %>
+  <div class="firstview_container">
+    <div class="firstview_upper_container">
+      <div>
+        <%= image_tag "smartphone_photo_satsuei_man.png", size: "80x90" %>
       </div>
-      <div class="firstview_middle_container">
-        <div>
-          <%= image_tag "firstview_arrow1_image.png", class: "firstview_middle_container_image" %>
-        </div>
-        <div class="firstview_product_images_container">
-          <div>
-          <% @random_products.first(5).each do |product| %>
-            <%= link_to product do %>
-              <% image_tag product.image, class: "firstview_product_images" %>
-            <% end %>
-          <% end %>
-          </div>
-        </div>
-        <div>
-          <%= image_tag "firstview_arrow2_image.png", class: "firstview_middle_container_image" %>
-        </div>
-      </div>
-      <div class="firstview_lower_container">
-        <div class="firstview_search_form">
-          <%= form_with url: products_search_path, method: :get, local: true do |f| %>
-            <%= f.text_field :word %>
-            <%= f.submit "検索" %>
-          <% end %>
-        </div>
-        <div>
-          <%= image_tag "discussion_image.png", size: "80x90" %>
-        </div>
+      <div>
+        <%= link_to "商品情報を登録する", new_product_path, class: "firstview_registration_product_button" %>
       </div>
     </div>
-  <!--ログアウト状態の画面-->
-  <% else %>
-    <div class="firstview_registration_container">
-      <p>
-        <%= link_to "新規登録", new_user_registration_path %>または
-        <%= link_to "ログイン", new_user_session_path %>して商品情報を登録しよう！
-        <br class="index_message_br">ゲストログインは
-        <%= link_to 'こちら', users_guest_sign_in_path, method: :post, class: "login" %>！
-      </p>
-    </div>
-    <div class="firstview_container">
-      <div class="firstview_upper_container">
-        <div>
-          <%= image_tag "smartphone_photo_satsuei_man.png", size: "80x90" %>
-        </div>
-        <div class="registration_login_guestlogin_container">
-          <div><%= link_to "新規登録", new_user_registration_path, class: "registration_login_guestlogin_button" %></div>
-          <div><%= link_to "ログイン", new_user_session_path, class: "registration_login_guestlogin_button" %></div>
-          <div><%= link_to 'ゲストログイン', users_guest_sign_in_path, method: :post, class: "registration_login_guestlogin_button" %></div>
-        </div>
+    <%= render "layouts/index/firstview_middle_container", random_products: @random_products %>
+    <%= render "layouts/index/firstview_lower_container" %>
+  </div>
+<% else %>
+  <div class="firstview_registration_message">
+    <p>
+      <%= link_to "新規登録", new_user_registration_path %>または
+      <%= link_to "ログイン", new_user_session_path %>して商品情報を登録しよう！
+      <br class="firstview_message_br">ゲストログインは
+      <%= link_to "こちら", users_guest_sign_in_path, method: :get, class: "login" %>!
+    </p>
+  </div>
+  <div class="firstview_container">
+    <div class="firstview_upper_container">
+      <div>
+        <%= image_tag "smartphone_photo_satsuei_man.png", size: "80x90" %>
       </div>
-      <div class="firstview_middle_container">
-        <div>
-          <%= image_tag "firstview_arrow1_image.png", class: "firstview_middle_container_image" %>
-        </div>
-        <div class="firstview_product_images_container">
-          <div>
-          <% @random_products.first(5).each do |product| %>
-            <%= link_to product do %>
-              <% image_tag product.image, class: "firstview_product_images" %>
-            <% end %>
-          <% end %>
-          </div>
-        </div>
-        <div>
-          <%= image_tag "firstview_arrow2_image.png", class: "firstview_middle_container_image" %>
-        </div>
-      </div>
-      <div class="firstview_lower_container">
-        <div class="firstview_search_form">
-          <%= form_with url: products_search_path, method: :get, local: true do |f| %>
-            <%= f.text_field :word %>
-            <%= f.submit "検索" %>
-          <% end %>
-        </div>
-        <div>
-          <%= image_tag "discussion_image.png", size: "80x90" %>
-        </div>
+      <div class="firstview_loggedout_buttons_container">
+        <div><%= link_to "新規登録", new_user_registration_path, class: "firstview_loggedout_buttons" %></div>
+        <div><%= link_to "ログイン", new_user_session_path, class: "firstview_loggedout_buttons" %></div>
+        <div><%= link_to "ゲストログイン", users_guest_sign_in_path, method: :get, class: "firstview_loggedout_buttons" %></div>
       </div>
     </div>
-  <% end %>
-</div>
-
-<!--<p>以下、テストデータ削除用</p>
-<% @products.each do |product| %>
-  <table>
-    <tr>
-      <td>
-        <%= product.name %>
-        <%= button_to "削除", product, method: :delete %>
-        <% if product.image.present? %>
-          <%= image_tag product.image.variant(resize: "100x100") %>
-        <% else %>
-          <%= image_tag 'user_img.png', size: "100x100" %>
-        <% end %>
-      </td>
-    </tr>
-  </table>
-<% end %>-->
+    <%= render "layouts/index/firstview_middle_container", random_products: @random_products %>
+    <%= render "layouts/index/firstview_lower_container" %>
+  </div>
+<% end %>

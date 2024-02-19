@@ -1,0 +1,59 @@
+<%= form_with model: product do |f| %>
+  <h2>商品情報</h2>
+  <div class="product_information">
+    <div>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :manufacturer %><br>
+      <%= f.text_field :manufacturer %>
+    </div>
+    <div>
+      <%= f.label :prie %><br>
+      <%= f.number_field :price, min: 1, placeholder: "半角数字で入力" %>
+    </div>
+    <div>
+      <%= f.label :category %><br>
+      <%= f.text_field :category, placeholder: "鍋つゆ、ドレッシング等"  %>
+    </div>
+    <div>
+      <%= f.label :description %><br>
+      <%= f.text_area :description, placeholder: "140文字以内" %>
+    </div>
+    <div>
+      <%= f.label :image %><br/>
+      <%= f.file_field :image %>
+    </div>
+    <div>
+      <%= f.hidden_field :user_id, value: user.id %>
+    </div>
+  </div>
+  <div class="product_score">
+    <br>
+    <h2>商品の評価</h2>
+    <div>
+      <%= f.label :point_of_reasonability %><br>
+      <%= f.select :point_of_reasonability, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
+    </div>
+    <div>
+      <%= f.label :point_of_impression %><br>
+      <%= f.select :point_of_impression, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
+    </div>
+    <div>
+      <%= f.label :point_of_taste %><br>
+      <%= f.select :point_of_taste, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
+    </div>
+    <div>
+      <%= f.label :point_of_repeatability %><br>
+      <%= f.select :point_of_repeatability, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
+    </div>
+    <div>
+      <%= f.label :point_of_design %><br>
+      <%= f.select :point_of_design, [["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], include_blank: "選択してください" %>
+    </div>
+  </div>
+  <div><br>
+    <%= f.submit "登録する"%>
+  </div>
+<% end %>

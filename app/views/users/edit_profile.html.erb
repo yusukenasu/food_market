@@ -2,7 +2,7 @@
   <%= render "layouts/error_messages", model: @user %>
   <h2>プロフィール編集</h2>
   <div>
-    <%= form_with model: @user, url: users_account_update_path, method: :patch do |f| %>
+    <%= form_with model: @user, url: users_profile_update_path, method: :patch do |f| %>
       <div>
         <%= f.label :name %><br>
         <%= f.text_field :name, autofocus: true %>

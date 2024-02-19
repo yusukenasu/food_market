@@ -1,0 +1,11 @@
+<div class="firstview_lower_container">
+  <div class="firstview_search_form">
+    <%= form_with url: products_search_path, method: :get, local: true do |f| %>
+      <%= f.text_field :word %>
+      <%= f.submit "検索" %>
+    <% end %>
+  </div>
+  <div>
+    <%= image_tag "discussion_image.png", size: "80x90" %>
+  </div>
+</div>

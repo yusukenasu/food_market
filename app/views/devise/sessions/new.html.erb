@@ -1,22 +1,25 @@
 <div class="non_responsive_pages">
+  <div class="error_messages">
+    <%= render "devise/shared/error_messages", resource: resource %>
+  </div>
   <h2>ログイン</h2>
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div>
+  <%= form_with model: @user, url: session_path(resource_name), local: true do |f| %>
+    <div class="form_group">
       <%= f.label :email %><br>
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
-    <div>
+    <div class="form_group">
       <%= f.label :password %><br>
       <%= f.password_field :password, autocomplete: "current-password" %>
+      <% if devise_mapping.rememberable? %>
+        <div>
+          <%= f.check_box :remember_me %>
+          <%= f.label :パスワードを保存しますか？ %>
+        </div>
+      <% end %>
+      <%= link_to "※パスワードを忘れた場合はこちら", new_password_path(resource_name) %>
     </div>
-    <% if devise_mapping.rememberable? %>
-      <div>
-        <%= f.check_box :remember_me %>
-        <%= f.label :パスワードを保存しますか？ %>
-      </div>
-    <% end %>
-    <%= link_to "※パスワードを忘れた場合はこちら", new_password_path(resource_name) %>
-    <div>
+    <div class="form_group">
       <%= f.submit "ログイン" %>
     </div>
   <% end %>

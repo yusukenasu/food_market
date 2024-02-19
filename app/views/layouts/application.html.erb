@@ -5,59 +5,23 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <%= include_gon %>
   </head>
-
   <header class="sticky-top">
-    <div class="header_container">
-      <nav class="navbar">
-        <div class="logo_search_container">
-          <div class="title_logo">
-            <%= link_to 'Tasty Network', products_path %>
-          </div>
-          <div class="search_form">
-            <%= form_with url: products_search_path, method: :get, local: true do |f| %>
-              <%= f.text_field :word %>
-              <%= f.submit "検索" %>
-            <% end %>
-          </div>
-        </div>
-        <% if user_signed_in? %>
-          <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-              <div class="user_image">
-                <% if current_user.image.present? %>
-                  <%= image_tag current_user.image.variant(resize: "30x30") %>
-                <% else %>
-                  <%= image_tag 'user_img.png', size: "30x30" %>
-                <% end %>
-              </div>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <div class="user_name">
-                <%= @user.name %>
-              </div>
-              <button class="dropdown-item" type="button"><%= link_to "マイページ", users_home_path %></button>
-              <button class="dropdown-item" type="button"><%= link_to "プロフィール編集", users_edit_account_path %></button>
-              <button class="dropdown-item" type="button"><%= link_to "アカウント設定変更", edit_user_registration_path %></button>
-              <button class="dropdown-item" type="button"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></button>
-            </div>
-          </div>
-        <% else %>
-        <% end %>
-      </nav>
-    </div>
+    <%= render "layouts/header" %>
   </header>
-
   <body>
+    <div class="notice">
+      <% if flash[:notice].present? || flash[:alert].present? %>
+          <%= flash[:notice] || flash[:alert] %>
+      <% end %>
+    </div>
     <%= yield %>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-    <!-- Rails_UJS -->
     <script src="https://cdn.jsdelivr.net/npm/@rails/ujs@7.1.1/app/assets/javascripts/rails-ujs.min.js"></script>
   </body>
 </html>

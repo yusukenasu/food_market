@@ -12,14 +12,14 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
+    get 'users/sign_out', to: 'devise/sessions#destroy'
     get 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
   root 'products#index'
   get 'users/home' ,to: 'users#home'
-  get 'users/edit_account' ,to: 'users#edit_account'
-  patch 'users/account_update' ,to: 'users#account_update'
+  get 'users/edit_profile' ,to: 'users#edit_profile'
+  patch 'users/profile_update' ,to: 'users#profile_update'
  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

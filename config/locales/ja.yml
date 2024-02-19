@@ -7,7 +7,18 @@ ja:
         profile: プロフィール
         password: パスワード
         image: アイコン画像
-        password_confirmation: パスワード（確認）
+        password_confirmation: 新しいパスワード（確認）
         new_password: 新しいパスワード
         current_password: 現在のパスワード
-      
+      product:
+        name: 商品名 ※
+        manufacturer: 製造メーカー ※
+        prie: 円・価格（税込） ※
+        category: カテゴリー
+        description: 商品の評価
+        image: 商品画像 ※ 
+        point_of_reasonability: コスパ ※
+        point_of_impression: 特徴的 ※
+        point_of_taste: 味 ※
+        point_of_repeatability: リピート性 ※
+        point_of_design: デザイン性 ※
