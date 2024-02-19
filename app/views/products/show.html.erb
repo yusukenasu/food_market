@@ -24,7 +24,11 @@
   <div class="contributor_infomation">
     <div class="contributor_user_rank"><%= user_rank(@product.user) %>(Lv.<%= amount_of_favorites_with_user(@product.user) + 1 %>)</div>
     <div class="contributor_name"><%= @product.user.name %></div>
-    <div><%= image_tag @product.user.image, class: "contributor_image" %></div>
+    <% if @product.user.image.present? %>
+      <%= image_tag @product.user.image, class: "contributor_image" %>
+    <% else %> 
+      <%= image_tag 'user_img.png', class: "contributor_image" %>
+    <% end %>
   </div>
 </div>
 <div class="rakuten_api">
