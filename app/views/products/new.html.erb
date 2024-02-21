@@ -1,4 +1,5 @@
 <div class="non_responsive_pages">
+  <%= render "layouts/error_messages", model: @product %>
   <p>※は必須項目です</p>
   <%= render "layouts/product_form", product: @product, user: current_user %>
 </div>

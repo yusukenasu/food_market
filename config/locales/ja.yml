@@ -14,7 +14,7 @@ ja:
       product:
         name: 商品名 ※
         manufacturer: 製造メーカー ※
-        prie: 円・価格（税込） ※
+        price: 円・価格（税込） ※
         category: カテゴリー
         description: 商品の評価
         image: 商品画像 ※ 

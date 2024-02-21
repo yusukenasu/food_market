@@ -20,5 +20,8 @@ module FoodMarket
     # config.eager_load_paths << Rails.root.join("extras")
     config.active_storage.variant_processor = :mini_magick
     config.i18n.default_locale = :ja
+    config.action_view.field_error_proc = Proc.new do |html_tag, instance| 
+      html_tag
+    end
   end
 end
