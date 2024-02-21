@@ -7,8 +7,9 @@ ja:
         profile: プロフィール
         password: パスワード
         image: アイコン画像
-        password_confirmation: 新しいパスワード（確認）
+        password_confirmation: パスワード（確認）
         new_password: 新しいパスワード
+        new_password_confirmation: 新しいパスワード（確認）
         current_password: 現在のパスワード
       product:
         name: 商品名 ※
