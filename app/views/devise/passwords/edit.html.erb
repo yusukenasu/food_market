@@ -3,16 +3,16 @@
     <%= render "devise/shared/error_messages", resource: resource %>
   </div>
   <h2>パスワードの再設定</h2>
-  <%= form_with model: @user, url: password_path(resource_name), local: true do |f| %>
+  <%= form_with(model: @user, url: password_path(resource_name), method: :put, local: true) do |f| %>
     <%= f.hidden_field :reset_password_token %>
     <div class="form_group">
-      <%= f.label :password, "新しいパスワード" %><br>
+      <%= f.label :user_new_password, "新しいパスワード" %><br>
       (<%= @minimum_password_length %>文字以上で設定してください。)<br>
-      <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+      <%= f.password_field :user_new_password, autofocus: true, autocomplete: "new-password" %>
     </div>
     <div class="form_group">
-      <%= f.label :password_confirmation, "新しいパスワード（確認）" %><br>
-      <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      <%= f.label :user_new_password_confirmation, "新しいパスワード（確認）" %><br>
+      <%= f.password_field :user_new_password_confirmation, autocomplete: "new-password" %>
     </div>
     <div class="form_group">
       <%= f.submit "パスワードを変更" %>
