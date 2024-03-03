@@ -1,13 +1,13 @@
 require 'rails_helper'
 
-RSpec.describe "ユーザーページ", type: :system do
+RSpec.describe "Users", type: :system do
   before do
     driven_by(:rack_test)
   end
 
   describe "ユーザー新規登録" do
     context "リンクから新規登録する場合" do
-      before do
+      it "ユーザー登録が完了すること" do
         visit products_path
         within ".firstview_registration_message" do
           click_link "新規登録"
@@ -17,15 +17,13 @@ RSpec.describe "ユーザーページ", type: :system do
         fill_in "パスワード", with: "password"
         fill_in "パスワード（確認）", with: "password"
         click_button "登録"
-      end
-
-      it "ユーザー登録が完了すること" do
+        
         expect(page).to have_content "アカウント登録が完了しました。"
       end
     end
 
     context "ボタンから新規登録する場合" do
-      before do
+      it "ユーザー登録が完了すること" do
         visit products_path
         within ".firstview_loggedout_buttons_container" do
           click_link "新規登録"
@@ -35,19 +33,18 @@ RSpec.describe "ユーザーページ", type: :system do
         fill_in "パスワード", with: "password"
         fill_in "パスワード（確認）", with: "password"
         click_button "登録"
-      end
 
-      it "ユーザー登録が完了すること" do
         expect(page).to have_content "アカウント登録が完了しました。"
       end
     end
   end 
 
   describe "ユーザーログイン・ログアウト" do
-    let(:user) { create(:user) }
+    let!(:user) { create(:user) }
+    let(:product) { create(:product, :product_with_image) }
     
     context "リンクからログインする場合" do
-      before do
+      it "ログインが完了すること" do
         visit products_path
         within ".firstview_registration_message" do
           click_link "ログイン"
@@ -55,9 +52,7 @@ RSpec.describe "ユーザーページ", type: :system do
         fill_in "メールアドレス", with: user.email
         fill_in "パスワード", with: user.password
         click_button "ログイン"
-      end
 
-      it "ログインが完了すること" do
         expect(page).to have_content "ログインしました。"
         expect(page).to have_content "#{user.name}"
         expect(page).to have_selector "img[src*='user_image_before.png']"
@@ -65,7 +60,7 @@ RSpec.describe "ユーザーページ", type: :system do
     end
 
     context "ボタンからログインする場合" do
-      before do
+      it "ログインが完了すること" do
         visit products_path
         within ".firstview_upper_container" do
           click_link "ログイン"
@@ -73,9 +68,7 @@ RSpec.describe "ユーザーページ", type: :system do
         fill_in "メールアドレス", with: user.email
         fill_in "パスワード", with: user.password
         click_button "ログイン"
-      end
 
-      it "ログインが完了すること" do
         expect(page).to have_content "ログインしました。"
         expect(page).to have_content "#{user.name}"
         expect(page).to have_selector "img[src*='user_image_before.png']"
@@ -83,22 +76,21 @@ RSpec.describe "ユーザーページ", type: :system do
     end
 
     context "ログアウトする場合" do
-      before do
+      it "ログアウトが完了すること" do
         login_as(user, scope: :user)
         visit products_path
         within ".dropdown-menu" do
           click_link "ログアウト" 
         end
-      end
 
-      it "ログアウトが完了すること" do
         expect(page).to have_content "ログアウトしました。"
       end
     end
   end
 
   describe "ユーザープロフィール編集" do
-    let(:user) { create(:user) }
+    let!(:user) { create(:user) }
+    let(:product) { create(:product, :product_with_image) }
 
     before do
       login_as(user, scope: :user)
@@ -106,12 +98,10 @@ RSpec.describe "ユーザーページ", type: :system do
     end
 
     context "名前を編集した場合" do
-      before do
+      it "名前の編集が完了すること" do
         fill_in "名前", with: "編集後の名前"
         click_button "更新" 
-      end
 
-      it "名前の編集が完了すること" do
         expect(page).to have_content "編集後の名前"
         expect(page).to have_content "#{user.profile}"
         expect(page).to have_selector("img[src*='user_image_before.png']")
@@ -119,12 +109,10 @@ RSpec.describe "ユーザーページ", type: :system do
     end
 
     context "プロフィールを編集した場合" do
-      before do
+      it "プロフィールの編集が完了すること" do
         fill_in "プロフィール", with: "編集後のプロフィールです。"
         click_button "更新"
-      end
 
-      it "プロフィールの編集が完了すること" do
         expect(page).to have_content "#{user.name}"
         expect(page).to have_content "編集後のプロフィールです。"
         expect(page).to have_selector("img[src*='user_image_before.png']")
@@ -132,13 +120,11 @@ RSpec.describe "ユーザーページ", type: :system do
     end
 
     context "名前とプロフィールを編集した場合" do
-      before do
+      it "名前とプロフィールの編集が完了すること" do
         fill_in "名前", with: "編集後の名前"
         fill_in "プロフィール", with: "編集後のプロフィールです。"
         click_button "更新"
-      end
 
-      it "名前とプロフィールの編集が完了すること" do
         expect(page).to have_content "編集後の名前"
         expect(page).to have_content "編集後のプロフィールです。"
         expect(page).to have_selector("img[src*='user_image_before.png']")
@@ -146,12 +132,10 @@ RSpec.describe "ユーザーページ", type: :system do
     end
 
     context "アイコン画像を編集した場合" do
-      before do
+      it "アイコン画像の編集が完了すること" do
         attach_file "アイコン画像", 'spec/fixtures/user_image_after.png'
         click_button "更新"
-      end
 
-      it "アイコン画像の編集が完了すること" do
         expect(page).to have_content "#{user.name}"
         expect(page).to have_content "#{user.profile}"
         expect(page).to have_css("img[src*='user_image_after.png']")
@@ -160,7 +144,8 @@ RSpec.describe "ユーザーページ", type: :system do
   end
 
   describe "ユーザー設定変更" do
-    let(:user) { create(:user) }
+    let!(:user) { create(:user) }
+    let(:product) { create(:product, :product_with_image) }
 
     before do
       login_as(user, scope: :user)
@@ -168,13 +153,11 @@ RSpec.describe "ユーザーページ", type: :system do
     end
 
     context "メールアドレスを変更した場合" do
-      before do
+      it "メールアドレスの変更が完了すること" do
         fill_in "メールアドレス", with: "new_address@example.com"
         fill_in "現在のパスワード", with: user.password
         click_button "更新"
-      end
 
-      it "メールアドレスの変更が完了すること" do
         expect(page).to have_content "アカウント情報を変更しました。"
         visit users_home_path
         expect(page).to have_content "new_address@example.com"
@@ -182,14 +165,12 @@ RSpec.describe "ユーザーページ", type: :system do
     end
 
     context "パスワードを変更した場合" do
-      before do
+      it "パスワードの変更が完了すること" do
         fill_in "パスワード", with: "new_password"
         fill_in "パスワード（確認）", with: "new_password"
         fill_in "現在のパスワード", with: user.password
         click_button "更新"
-      end
 
-      it "パスワードの変更が完了すること" do
         expect(page).to have_content "アカウント情報を変更しました。"
 
         click_link "ログアウト"
@@ -206,30 +187,28 @@ RSpec.describe "ユーザーページ", type: :system do
   end
 
   describe "ユーザーアカウント削除" do
-    let(:user) { create(:user) }
+    let!(:user) { create(:user) }
+    let(:product) { create(:product, :product_with_image) }
 
-    before do
+    it "アカウント削除が完了すること" do
       login_as(user, scope: :user)
       visit edit_user_registration_path
       click_button "削除"
-    end
 
-    it "アカウント削除が完了すること" do
       expect(page).to have_content "アカウントを削除しました。またのご利用をお待ちしております。"
     end   
   end
 
   describe "パスワード再設定" do
-    let(:user) { create(:user) }
+    let!(:user) { create(:user) }
+    let(:product) { create(:product, :product_with_image) }
 
-    before do
+    it "パスワードの再設定用メールの送信が完了すること" do
       visit new_user_session_path
       click_link "※パスワードを忘れた場合はこちら"
       fill_in "メールアドレス", with: user.email
       click_button "送信"
-    end
 
-    it "パスワードの再設定用メールの送信が完了すること" do
       expect(page).to have_content "パスワードの再設定について数分以内にメールでご連絡いたします。"
 
       mail = ActionMailer::Base.deliveries.last
@@ -241,30 +220,26 @@ RSpec.describe "ユーザーページ", type: :system do
       fill_in "パスワード", with: "new_password"
       fill_in "パスワード（確認）", with: "new_password"
       click_button "パスワードを変更"
-      
+
       expect(page).to have_content "パスワードが正しく変更されました。"
     end
   end
 
   describe "ゲストログイン" do
     context "リンクからゲストログインする場合" do
-      before do
+      it "ゲストログインが完了すること" do
         visit products_path
         click_link "こちら"
-      end
 
-      it "ゲストログインが完了すること" do
         expect(page).to have_content "ゲストユーザーとしてログインしました。"
       end   
     end
 
     context "ボタンからゲストログインする場合" do
-      before do
+      it "ゲストログインが完了すること" do
         visit products_path
         click_link "ゲストログイン"
-      end
 
-      it "ゲストログインが完了すること" do
         expect(page).to have_content "ゲストユーザーとしてログインしました。"
       end   
     end

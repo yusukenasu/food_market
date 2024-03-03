@@ -1,18 +1,21 @@
 FactoryBot.define do
   factory :product do
-    name { "MyString" }
-    manufacturer { "MyString" }
+    name { "product_name" }
+    manufacturer { "product_manufacturer" }
     price { 100 }
-    category { "MyString" }
-    description { "MyString" }
-    point_of_reasonability { 1 }
-    point_of_impression { 1 }
-    point_of_taste { 1 }
-    point_of_repeatability { 1 }
+    category { "product_category" }
+    description { "product_description" }
+    point_of_reasonability { 5 }
+    point_of_impression { 4 }
+    point_of_taste { 3 }
+    point_of_repeatability { 2 }
     point_of_design { 1 }
-    after(:build) do |product|
-      product.image.attach(io: File.open('spec/fixtures/product_image.jpeg'), filename: 'product_image.jpeg', content_type: 'image/jpeg')
-    end
     association :user
+
+    trait :product_with_image do
+      after(:build) do |product|
+        product.image.attach(io: File.open('spec/fixtures/product_image_1.jpeg'), filename: 'product_image_1.jpeg', content_type: 'image/jpeg')
+      end
+    end
   end
 end
