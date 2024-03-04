@@ -184,7 +184,7 @@ RSpec.describe "Products", type: :system do
     end
   end
 
-  describe "商品検索" do
+  describe "ログイン状態での商品検索" do
     let!(:user) { create(:user) }
     let!(:products) do
       products = build_list(:product, 3, user: user)
@@ -305,6 +305,36 @@ RSpec.describe "Products", type: :system do
       end
     end
   end
+
+  describe "ログアウト状態での商品検索" do
+    let!(:user) { create(:user) }
+    let!(:product) { create(:product, :product_with_image, user: user) }
+
+    before do
+      visit products_path
+      within ".search_form" do
+        click_button "検索"
+      end
+    end
+
+    it "商品評価が表示されていないこと" do
+      expect(page).not_to have_content "product_description"
+    end
+
+    it "新規登録、ログインへの誘導メッセージが表示されていること" do
+      expect(page).to have_content "新規登録または ログインして商品情報を確認しよう！"
+    end
+
+    it "新規登録画面に遷移すること" do
+      click_link "新規登録" 
+      expect(current_path).to eq(new_user_registration_path)
+    end
+
+    it "ログイン画面に遷移すること" do
+      click_link "ログイン"
+      expect(current_path).to eq(new_user_session_path)
+    end
+  end
   
   describe "ファーストビューでの商品画像表示" do
     context "5つの商品が登録されている場合" do
@@ -340,8 +370,5 @@ RSpec.describe "Products", type: :system do
         expect(all_product_images.count).to eq 3
       end
     end
-  end
-
-  describe "" do
   end
 end
