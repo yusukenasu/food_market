@@ -15,7 +15,7 @@ class Product < ApplicationRecord
   validates :point_of_design, presence: true
   
   def self.looks(word)
-    where("name LIKE ? OR category LIKE ?", "%#{word}%", "%#{word}%")
+    where("name LIKE(?) OR manufacturer LIKE(?)" , "%#{word}%", "%#{word}%")
   end
 
   def favorited?(user)
