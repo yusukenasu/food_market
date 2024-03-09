@@ -14,11 +14,11 @@ RSpec.describe "Products", type: :system do
       fill_in "カテゴリー", with: "new_product_category"
       fill_in "商品の評価", with: "new_product_description"
       attach_file "商品画像 ※", 'spec/fixtures/product_image_1.jpeg'
-      select "1", from: "コスパ ※"
-      select "2", from: "特徴的 ※"
-      select "3", from: "味 ※"
-      select "4", from: "リピート性 ※"
-      select "5", from: "デザイン性 ※"
+      select "1", from: "コスパ"
+      select "2", from: "特徴的"
+      select "3", from: "味"
+      select "4", from: "リピート性"
+      select "5", from: "デザイン性"
       click_button "登録する"
     end
 
@@ -90,11 +90,11 @@ RSpec.describe "Products", type: :system do
         fill_in "製造メーカー ※", with: "キューピー"
         fill_in "円・価格（税込） ※", with: "200"
         attach_file "商品画像 ※", 'spec/fixtures/product_image_1.jpeg'
-        select "1", from: "コスパ ※"
-        select "2", from: "特徴的 ※"
-        select "3", from: "味 ※"
-        select "4", from: "リピート性 ※"
-        select "5", from: "デザイン性 ※"
+        select "1", from: "コスパ"
+        select "2", from: "特徴的"
+        select "3", from: "味"
+        select "4", from: "リピート性"
+        select "5", from: "デザイン性"
         click_button "登録する"
       end
 
@@ -121,7 +121,6 @@ RSpec.describe "Products", type: :system do
     end
   end
 
-
   describe "登録商品の編集" do
     let!(:user) { create(:user) }
     let!(:product) { create(:product, :product_with_image, user: user) }
@@ -136,11 +135,11 @@ RSpec.describe "Products", type: :system do
       fill_in "カテゴリー", with: "編集後のカテゴリー"
       fill_in "商品の評価", with: "編集後の評価"
       attach_file "商品画像 ※", 'spec/fixtures/product_image_2.jpeg'
-      select "2", from: "コスパ ※"
-      select "3", from: "特徴的 ※"
-      select "4", from: "味 ※"
-      select "5", from: "リピート性 ※"
-      select "1", from: "デザイン性 ※"
+      select "2", from: "コスパ"
+      select "3", from: "特徴的"
+      select "4", from: "味"
+      select "5", from: "リピート性"
+      select "1", from: "デザイン性"
       click_button "登録する"
     end
 

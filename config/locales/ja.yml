@@ -18,8 +18,9 @@ ja:
         category: カテゴリー
         description: 商品の評価
         image: 商品画像 ※ 
-        point_of_reasonability: コスパ ※
-        point_of_impression: 特徴的 ※
-        point_of_taste: 味 ※
-        point_of_repeatability: リピート性 ※
-        point_of_design: デザイン性 ※
+        point_of_reasonability: コスパ
+        point_of_impression: 特徴的
+        point_of_taste: 味
+        point_of_repeatability: リピート性
+        point_of_design: デザイン性
+        
