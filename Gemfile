@@ -70,7 +70,6 @@ group :test do
   gem "factory_bot_rails"
   gem "capybara"
   gem "selenium-webdriver"
-  gem "webdrivers"
   gem "pry"
 end
 

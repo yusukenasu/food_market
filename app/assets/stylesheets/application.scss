@@ -421,8 +421,21 @@ textarea{
   font-size: 15px;
 }
 
+.favorite_button_on :hover{
+  color: orange;
+}
+
 .favorite_button_off{
   color: gray;
+  font-size: 15px;
+}
+
+.favorite_button_off :hover{
+  color: gray;
+}
+
+.favorites_of_product{
+  color: orange;
   font-size: 15px;
 }
 
