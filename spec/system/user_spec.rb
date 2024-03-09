@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe "Users", type: :system do
+  let(:user) { create(:user) }
+  let(:product) { create(:product, :product_with_image) }
+
   describe "ユーザー新規登録" do
     context "リンクから新規登録する場合" do
       it "ユーザー登録が完了すること" do
@@ -35,10 +38,7 @@ RSpec.describe "Users", type: :system do
     end
   end 
 
-  describe "ユーザーログイン・ログアウト" do
-    let!(:user) { create(:user) }
-    let!(:product) { create(:product, :product_with_image) }
-    
+  describe "ユーザーログイン・ログアウト" do    
     context "リンクからログインする場合" do
       it "ログインが完了すること" do
         visit products_path
@@ -85,9 +85,6 @@ RSpec.describe "Users", type: :system do
   end
 
   describe "ユーザープロフィール編集" do
-    let!(:user) { create(:user) }
-    let!(:product) { create(:product, :product_with_image) }
-
     before do
       login_as(user, scope: :user)
       visit users_edit_profile_path
@@ -140,9 +137,6 @@ RSpec.describe "Users", type: :system do
   end
 
   describe "ユーザー設定変更" do
-    let!(:user) { create(:user) }
-    let!(:product) { create(:product, :product_with_image) }
-
     before do
       login_as(user, scope: :user)
       visit edit_user_registration_path
@@ -155,7 +149,9 @@ RSpec.describe "Users", type: :system do
         click_button "更新"
 
         expect(page).to have_content "アカウント情報を変更しました。"
+
         visit users_home_path
+        
         expect(page).to have_content "new_address@example.com"
       end
     end
@@ -183,9 +179,6 @@ RSpec.describe "Users", type: :system do
   end
 
   describe "ユーザーアカウント削除" do
-    let!(:user) { create(:user) }
-    let!(:product) { create(:product, :product_with_image) }
-
     it "アカウント削除が完了すること" do
       login_as(user, scope: :user)
       visit edit_user_registration_path
@@ -196,9 +189,6 @@ RSpec.describe "Users", type: :system do
   end
 
   describe "パスワード再設定" do
-    let!(:user) { create(:user) }
-    let!(:product) { create(:product, :product_with_image) }
-
     it "パスワードの再設定用メールの送信が完了すること" do
       visit new_user_session_path
       click_link "※パスワードを忘れた場合はこちら"

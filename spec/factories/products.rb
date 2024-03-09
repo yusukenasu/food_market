@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :product do
-    name { "product_name" }
-    manufacturer { "product_manufacturer" }
+    name { "product0_name" }
+    manufacturer { "product0_manufacturer" }
     price { 100 }
     category { "product_category" }
     description { "product_description" }
@@ -14,7 +14,7 @@ FactoryBot.define do
 
     trait :product_with_image do
       after(:build) do |product|
-        product.image.attach(io: File.open('spec/fixtures/product_image_1.jpeg'), filename: 'product_image_1.jpeg', content_type: 'image/jpeg')
+        product.image.attach(io: File.open('spec/fixtures/product_image_0.jpeg'), filename: 'product_image_0.jpeg', content_type: 'image/jpeg')
       end
     end
   end

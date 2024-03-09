@@ -1,13 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  let!(:user) { build(:user) }
-  let!(:user_without_name) { build(:user, name: nil) }
-  let!(:user_without_password) { build(:user, password: nil) }
-  let!(:user_with_short_password) { build(:user, password: "12345") }
-  let!(:user_without_email) { build(:user, email: nil) }
-  let!(:another_user) { build(:user, email: user.email) }
-  let!(:user_with_long_profile) { build(:user, profile: "a" * 41 ) }
+  let(:user) { build(:user) }
+  let(:user_without_name) { build(:user, name: nil) }
+  let(:user_without_password) { build(:user, password: nil) }
+  let(:user_with_short_password) { build(:user, password: "12345") }
+  let(:user_without_email) { build(:user, email: nil) }
+  let(:another_user) { build(:user, email: user.email) }
+  let(:user_with_long_profile) { build(:user, profile: "a" * 41 ) }
 
   describe "validations" do
     it "ファクトリが有効であること" do
