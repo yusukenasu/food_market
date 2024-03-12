@@ -92,7 +92,6 @@ RSpec.describe "Products", type: :system do
         expect(page).to have_css ".item_name"
         expect(page).to have_css ".item_image"
         expect(page).to have_css ".item_price"
-
       end
 
       it "関連商品が4つ表示されること" do
