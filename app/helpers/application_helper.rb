@@ -1,29 +1,29 @@
 module ApplicationHelper
   def item_score(score)
     star = ""
-    score.times do 
+    score.times do
       star += "★"
     end
-    (5-score).times do
+    (5 - score).times do
       star += "☆"
     end
-    return star
+    star
   end
 
   def amount_of_favorites_with_product(product_id)
-    number = Favorite.where(product_id: product_id)
-    return number.count
+    number = Favorite.where(product_id:)
+    number.count
   end
 
   def amount_of_favorites_with_user(user_id)
-    product_id = Product.where(user_id: user_id)
-    number = Favorite.where(product_id: product_id)
-    return number.count
+    product_id = Product.where(user_id:)
+    number = Favorite.where(product_id:)
+    number.count
   end
 
   def user_rank(user_id)
-    product_id = Product.where(user_id: user_id)
-    number = Favorite.where(product_id: product_id)
+    product_id = Product.where(user_id:)
+    number = Favorite.where(product_id:)
     ranks = [
       "初心者開発者",
       "未熟な開発者",
@@ -48,6 +48,6 @@ module ApplicationHelper
       "食の達人開発者",
       "フードゴッド"
     ]
-    return ranks[number.count] || "フードゴッド"
+    ranks[number.count] || "フードゴッド"
   end
 end

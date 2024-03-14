@@ -5,12 +5,12 @@ class Product < ApplicationRecord
 
   validates :name, presence: true
   validates :manufacturer, presence: true
-  validates :price, presence: true, numericality: {only_integer: true, greater_than: 0}
-  validates :description, length: {maximum: 140}
+  validates :price, presence: true, numericality: { only_integer: true, greater_than: 0 }
+  validates :description, length: { maximum: 140 }
   validates :image, presence: true
-  
+
   def self.looks(word)
-    where("name LIKE(?) OR manufacturer LIKE(?)" , "%#{word}%", "%#{word}%")
+    where("name LIKE(?) OR manufacturer LIKE(?)", "%#{word}%", "%#{word}%")
   end
 
   def favorited?(user)

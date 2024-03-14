@@ -44,14 +44,15 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to users_home_path
-  end 
+  end
 
   def search
     @searched_products = Product.looks(params[:word])
   end
 
   private
-  def product_params 
+
+  def product_params
     params.require(:product).permit(
       :name, :manufacturer, :price, :category,
       :description, :point_of_reasonability,

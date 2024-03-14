@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Rakuten API", type: :request do
   let!(:user) { create(:user) }
-  let!(:product) { create(:product, :product_with_image, user: user) }
+  let!(:product) { create(:product, :product_with_image, user:) }
 
   before do
     login_as(user, scope: :user)

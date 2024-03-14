@@ -7,7 +7,7 @@ RSpec.describe User, type: :model do
   let(:user_with_short_password) { build(:user, password: "12345") }
   let(:user_without_email) { build(:user, email: nil) }
   let(:another_user) { build(:user, email: user.email) }
-  let(:user_with_long_profile) { build(:user, profile: "a" * 41 ) }
+  let(:user_with_long_profile) { build(:user, profile: "a" * 41) }
 
   describe "validations" do
     it "ファクトリが有効であること" do
@@ -23,12 +23,12 @@ RSpec.describe User, type: :model do
       user_without_password.valid?
       expect(user_without_password.errors[:password]).to include("を入力してください")
     end
- 
+
     it "パスワードが５文字以下の場合、無効であること" do
       user_with_short_password.valid?
       expect(user_with_short_password.errors[:password]).to include("は6文字以上で入力してください")
     end
-    
+
     it "メールアドレスがない場合、無効であること" do
       user_without_email.valid?
       expect(user_without_email.errors[:email]).to include("を入力してください")

@@ -16,7 +16,7 @@ RSpec.describe "Users", type: :system do
         fill_in "パスワード", with: "password"
         fill_in "パスワード（確認）", with: "password"
         click_button "登録"
-        
+
         expect(page).to have_content "アカウント登録が完了しました。"
       end
     end
@@ -36,9 +36,9 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_content "アカウント登録が完了しました。"
       end
     end
-  end 
+  end
 
-  describe "ユーザーログイン・ログアウト" do    
+  describe "ユーザーログイン・ログアウト" do
     context "リンクからログインする場合" do
       it "ログインが完了すること" do
         visit products_path
@@ -50,7 +50,7 @@ RSpec.describe "Users", type: :system do
         click_button "ログイン"
 
         expect(page).to have_content "ログインしました。"
-        expect(page).to have_content "#{user.name}"
+        expect(page).to have_content user.name.to_s
         expect(page).to have_selector "img[src*='user_image_before.png']"
       end
     end
@@ -66,7 +66,7 @@ RSpec.describe "Users", type: :system do
         click_button "ログイン"
 
         expect(page).to have_content "ログインしました。"
-        expect(page).to have_content "#{user.name}"
+        expect(page).to have_content user.name.to_s
         expect(page).to have_selector "img[src*='user_image_before.png']"
       end
     end
@@ -76,7 +76,7 @@ RSpec.describe "Users", type: :system do
         login_as(user, scope: :user)
         visit products_path
         within ".dropdown-menu" do
-          click_link "ログアウト" 
+          click_link "ログアウト"
         end
 
         expect(page).to have_content "ログアウトしました。"
@@ -93,10 +93,10 @@ RSpec.describe "Users", type: :system do
     context "名前を編集した場合" do
       it "名前の編集が完了すること" do
         fill_in "名前", with: "編集後の名前"
-        click_button "更新" 
+        click_button "更新"
 
         expect(page).to have_content "編集後の名前"
-        expect(page).to have_content "#{user.profile}"
+        expect(page).to have_content user.profile.to_s
         expect(page).to have_selector("img[src*='user_image_before.png']")
       end
     end
@@ -106,7 +106,7 @@ RSpec.describe "Users", type: :system do
         fill_in "プロフィール", with: "編集後のプロフィールです。"
         click_button "更新"
 
-        expect(page).to have_content "#{user.name}"
+        expect(page).to have_content user.name.to_s
         expect(page).to have_content "編集後のプロフィールです。"
         expect(page).to have_selector("img[src*='user_image_before.png']")
       end
@@ -129,11 +129,11 @@ RSpec.describe "Users", type: :system do
         attach_file "アイコン画像", 'spec/fixtures/user_image_after.png'
         click_button "更新"
 
-        expect(page).to have_content "#{user.name}"
-        expect(page).to have_content "#{user.profile}"
+        expect(page).to have_content user.name.to_s
+        expect(page).to have_content user.profile.to_s
         expect(page).to have_css("img[src*='user_image_after.png']")
       end
-    end  
+    end
   end
 
   describe "ユーザー設定変更" do
@@ -151,7 +151,7 @@ RSpec.describe "Users", type: :system do
         expect(page).to have_content "アカウント情報を変更しました。"
 
         visit users_home_path
-        
+
         expect(page).to have_content "new_address@example.com"
       end
     end
@@ -185,7 +185,7 @@ RSpec.describe "Users", type: :system do
       click_button "削除"
 
       expect(page).to have_content "アカウントを削除しました。またのご利用をお待ちしております。"
-    end   
+    end
   end
 
   describe "パスワード再設定" do
@@ -198,7 +198,7 @@ RSpec.describe "Users", type: :system do
       expect(page).to have_content "パスワードの再設定について数分以内にメールでご連絡いたします。"
 
       mail = ActionMailer::Base.deliveries.last
-      reset_password_url = mail.body.to_s.match(/http:\/\/[^"]+/)[0]
+      reset_password_url = mail.body.to_s.match(%r{http://[^"]+})[0]
       visit reset_password_url
 
       expect(page).to have_content "パスワードの再設定"
@@ -218,7 +218,7 @@ RSpec.describe "Users", type: :system do
         click_link "こちら"
 
         expect(page).to have_content "ゲストユーザーとしてログインしました。"
-      end   
+      end
     end
 
     context "ボタンからゲストログインする場合" do
@@ -227,7 +227,7 @@ RSpec.describe "Users", type: :system do
         click_link "ゲストログイン"
 
         expect(page).to have_content "ゲストユーザーとしてログインしました。"
-      end   
+      end
     end
   end
 end

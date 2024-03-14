@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe "Products", type: :system do
   let(:user) { create(:user) }
-  let!(:product) { create(:product, :product_with_image, user: user) }
+  let!(:product) { create(:product, :product_with_image, user:) }
 
-  describe "商品情報の登録" do 
+  describe "商品情報の登録" do
     before do
       login_as(user, scope: :user)
       visit products_path
@@ -64,7 +64,7 @@ RSpec.describe "Products", type: :system do
       expect(page).to have_content "リピート性#{item_score(product.point_of_repeatability)}"
       expect(page).to have_content "デザイン性#{item_score(product.point_of_design)}"
     end
-    
+
     it "商品投稿者情報、商品説明が表示されること" do
       expect(page).to have_content user_rank(user.id)
       expect(page).to have_content product.user.name
@@ -101,7 +101,7 @@ RSpec.describe "Products", type: :system do
       end
     end
 
-    context "関連商品が存在しない場合" do      
+    context "関連商品が存在しない場合" do
       it "関連商品が表示されないこと" do
         visit product_path(product)
         expect(page).to have_content "※関連商品は見つかりませんでした。"
@@ -126,8 +126,8 @@ RSpec.describe "Products", type: :system do
       select "1", from: "デザイン性"
       click_button "登録する"
     end
-    
-    it "商品情報の編集が完了すること" do      
+
+    it "商品情報の編集が完了すること" do
       edit_product = Product.last
 
       expect(current_path).to eq(product_path(edit_product))
@@ -144,7 +144,7 @@ RSpec.describe "Products", type: :system do
       expect(page).to have_content "デザイン性#{item_score(edit_product.point_of_design)}"
     end
   end
-  
+
   describe "登録商品の削除" do
     before do
       login_as(user, scope: :user)
@@ -155,9 +155,9 @@ RSpec.describe "Products", type: :system do
       expect(page).to have_content product.name
       expect(page).to have_content product.description
       expect(page).to have_selector "img[src*='product_image_0.jpeg']"
-    
+
       click_button "削除"
-      
+
       expect(page).not_to have_content product.name
       expect(page).not_to have_content product.description
       expect(page).not_to have_selector "img[src*='product_image_0.jpeg']"
@@ -166,11 +166,11 @@ RSpec.describe "Products", type: :system do
 
   describe "ログイン状態での商品検索" do
     let!(:products) do
-      products = build_list(:product, 2, user: user)
+      products = build_list(:product, 2, user:)
       products.each_with_index do |product, index|
-        product.name = "product#{index+1}_name"
-        product.manufacturer = "product#{index+1}_manufacturer"
-        product.image.attach(io: File.open("spec/fixtures/product_image_#{index+1}.jpeg"), filename: "product_image_#{index+1}.jpeg", content_type: 'image/jpeg')
+        product.name = "product#{index + 1}_name"
+        product.manufacturer = "product#{index + 1}_manufacturer"
+        product.image.attach(io: File.open("spec/fixtures/product_image_#{index + 1}.jpeg"), filename: "product_image_#{index + 1}.jpeg", content_type: 'image/jpeg')
         product.save
       end
     end
@@ -302,7 +302,7 @@ RSpec.describe "Products", type: :system do
     end
 
     it "新規登録画面に遷移すること" do
-      click_link "新規登録" 
+      click_link "新規登録"
       expect(current_path).to eq(new_user_registration_path)
     end
 
@@ -311,13 +311,13 @@ RSpec.describe "Products", type: :system do
       expect(current_path).to eq(new_user_session_path)
     end
   end
-  
+
   describe "ファーストビューでの商品画像表示" do
     context "5つの商品が登録されている場合" do
       let!(:products) do
-        products = build_list(:product, 4, user: user)
+        products = build_list(:product, 4, user:)
         products.each_with_index do |product, index|
-          product.image.attach(io: File.open("spec/fixtures/product_image_#{index+1}.jpeg"), filename: "product_image_#{index+1}.jpeg", content_type: 'image/jpeg')
+          product.image.attach(io: File.open("spec/fixtures/product_image_#{index + 1}.jpeg"), filename: "product_image_#{index + 1}.jpeg", content_type: 'image/jpeg')
           product.save
         end
       end
@@ -336,9 +336,9 @@ RSpec.describe "Products", type: :system do
 
     context "3つの商品が登録されている場合" do
       let!(:products) do
-        products = build_list(:product, 2, user: user)
+        products = build_list(:product, 2, user:)
         products.each_with_index do |product, index|
-          product.image.attach(io: File.open("spec/fixtures/product_image_#{index+1}.jpeg"), filename: "product_image_#{index+1}.jpeg", content_type: 'image/jpeg')
+          product.image.attach(io: File.open("spec/fixtures/product_image_#{index + 1}.jpeg"), filename: "product_image_#{index + 1}.jpeg", content_type: 'image/jpeg')
           product.save
         end
       end
@@ -346,7 +346,7 @@ RSpec.describe "Products", type: :system do
       it "登録された商品が3つであること" do
         expect(Product.count).to eq 3
       end
-      
+
       it "商品画像が3つ表示されていること" do
         visit products_path
         all_product_images = page.all ".firstview_product_image"

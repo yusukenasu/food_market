@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Favorites", type: :system do
   describe "いいね機能", js: true do
     let!(:user) { create(:user) }
-    let!(:product) { create(:product, :product_with_image, user: user) }
+    let!(:product) { create(:product, :product_with_image, user:) }
     let!(:another_user) { create(:user) }
 
     context "商品投稿者以外のユーザーがイイねする場合" do
@@ -61,7 +61,7 @@ RSpec.describe "Favorites", type: :system do
         login_as(user, scope: :user)
         visit product_path(product)
       end
-      
+
       it "イイねボタンは無効でイイね数のみ表示されること" do
         expect(page).not_to have_css ".favorite_button_on"
         expect(page).not_to have_css ".favorite_button_off"
