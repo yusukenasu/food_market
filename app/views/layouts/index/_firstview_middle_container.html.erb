@@ -3,16 +3,19 @@
     <%= image_tag "firstview_arrow1_image.png", class: "firstview_middle_container_image" %>
   </div>
   <div class="firstview_product_images_container">
-    <% random_products.limit(4).each do |product| %>
-    <div class="firstview_product_image_box"> 
-      <% if user_signed_in? %> 
-        <%= link_to product_path(product) do %>
-          <% image_tag product.image, class: "firstview_product_image" %>
+    <% if random_products.present? %>
+      <% random_products.limit(4).each do |product| %>
+      <div class="firstview_product_image_box"> 
+        <% if user_signed_in? %> 
+          <%= link_to product_path(product) do %>
+            <% image_tag product.image, class: "firstview_product_image" %>
+          <% end %>
+        <% else %>
+          <%= image_tag product.image, class: "firstview_product_image" %>
         <% end %>
-      <% else %>
-        <%= image_tag product.image, class: "firstview_product_image" %>
+      </div>
       <% end %>
-    </div>
+    <% else %>
     <% end %>
   </div>
   <div>

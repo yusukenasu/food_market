@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all.includes(:user)
-    @random_products = Product.order("RAND()").limit(5).includes(:user)
+    @random_products = Product.order("RANDOM()").limit(5).includes(:user)
   end
 
   def show
