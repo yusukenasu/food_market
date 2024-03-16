@@ -4,8 +4,10 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
   end
 
-  Rails.env.development? if mount LetterOpenerWeb::Engine, at: "/letter_opener"
-
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+  
   devise_for :users, controllers: {
     registrations: 'users/registrations'
   }
