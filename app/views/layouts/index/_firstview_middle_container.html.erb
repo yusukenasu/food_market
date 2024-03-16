@@ -3,7 +3,7 @@
     <%= image_tag "firstview_arrow1_image.png", class: "firstview_middle_container_image" %>
   </div>
   <div class="firstview_product_images_container">
-    <% random_products.first(4).each do |product| %>
+    <% random_products.limit(4).each do |product| %>
     <div class="firstview_product_image_box"> 
       <% if user_signed_in? %> 
         <%= link_to product_path(product) do %>

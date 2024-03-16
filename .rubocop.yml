@@ -1,0 +1,14 @@
+inherit_from: .rubocop_todo.yml
+
+require:
+  - rubocop-rails
+
+AllCops:
+  Exclude:
+    - "bin/**"
+    - "lib/**"
+    - "db/**/*"
+    - "tmp/**/*"
+    - "log/**/*"
+    - "spec/rails_helper.rb"
+    

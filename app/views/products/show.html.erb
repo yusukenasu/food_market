@@ -33,7 +33,7 @@
 </div>
 <div class="rakuten_api">
   ⇩楽天市場で商品を探す⇩
-  <% if @items.present? %>
+  <% if @items.any? %>
     <%= render 'layouts/show/item' %>
   <% else %>
     <p>※関連商品は見つかりませんでした。</p>

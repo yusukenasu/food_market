@@ -13,6 +13,13 @@
       </div>
       <div>
         <%= f.label :image %><br>
+        <% if current_user.image.present? %>
+          <%= image_tag current_user.image.variant(resize: "60x60") %><br>
+          <%= current_user.image.filename %>
+        <% else %>
+          <%= image_tag 'user_img.png', size: "60x60" %><br>
+          user_img.png
+        <% end %><br>
         <%= f.file_field :image %>
       </div>
       <div>

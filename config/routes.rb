@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
-  get 'products/search' ,to: 'products#search'
+  get 'products/search', to: 'products#search'
   resources :products do
     resource :favorites, only: [:create, :destroy]
   end
-  # 開発環境用letter_opener
-  if Rails.env.development?
-    mount LetterOpenerWeb::Engine, at: "/letter_opener" 
-  end
+
+  Rails.env.development? if mount LetterOpenerWeb::Engine, at: "/letter_opener"
 
   devise_for :users, controllers: {
     registrations: 'users/registrations'
@@ -17,10 +15,10 @@ Rails.application.routes.draw do
   end
 
   root 'products#index'
-  get 'users/home' ,to: 'users#home'
-  get 'users/edit_profile' ,to: 'users#edit_profile'
-  patch 'users/profile_update' ,to: 'users#profile_update'
- 
+  get 'users/home', to: 'users#home'
+  get 'users/edit_profile', to: 'users#edit_profile'
+  patch 'users/profile_update', to: 'users#profile_update'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

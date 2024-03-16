@@ -1,9 +1,13 @@
-<% if product.favorited?(current_user) %>
-  <%= link_to product_favorites_path(product), method: :delete, remote: true, data: {"turbolinks" => false}, class: "favorite_button_on" do %>
-    <span>★イイね！<%= amount_of_favorites_with_product(product) %></span>
-  <% end %>
+<% if current_user == product.user %>
+  <span class="favorites_of_product">★イイね <%= amount_of_favorites_with_product(product) %></span>
 <% else %>
-  <%= link_to product_favorites_path(product), method: :post, remote: true, data: {"turbolinks" => false}, class: "favorite_button_off" do %>
-    <span>★イイね！<%= amount_of_favorites_with_product(product) %></span>
+  <% if product.favorited?(current_user) %>
+    <%= link_to product_favorites_path(product), method: :delete, remote: true, data: {"turbolinks" => false}, class: "favorite_button_on" do %>
+      <span>★イイね <%= amount_of_favorites_with_product(product) %></span>
+    <% end %>
+  <% else %>
+    <%= link_to product_favorites_path(product), method: :post, remote: true, data: {"turbolinks" => false}, class: "favorite_button_off" do %>
+      <span>★イイね <%= amount_of_favorites_with_product(product) %></span>
+    <% end %>
   <% end %>
 <% end %>
