@@ -28,25 +28,26 @@
   <div class="product_score">
     <br>
     <h2>商品の評価</h2>
+    <% score_fields = product.new_record? ? { selected: "0" } : {} %>
     <div>
       <%= f.label :point_of_reasonability %><br>
-      <%= f.select :point_of_reasonability, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], selected: "0" %>
+      <%= f.select :point_of_reasonability, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], score_fields %>
     </div>
     <div>
       <%= f.label :point_of_impression %><br>
-      <%= f.select :point_of_impression, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], selected: "0" %>
+      <%= f.select :point_of_impression, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], score_fields %>
     </div>
     <div>
       <%= f.label :point_of_taste %><br>
-      <%= f.select :point_of_taste, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], selected: "0" %>
+      <%= f.select :point_of_taste, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], score_fields %>
     </div>
     <div>
       <%= f.label :point_of_repeatability %><br>
-      <%= f.select :point_of_repeatability, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], selected: "0" %>
+      <%= f.select :point_of_repeatability, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], score_fields %>
     </div>
     <div>
       <%= f.label :point_of_design %><br>
-      <%= f.select :point_of_design, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], selected: "0" %>
+      <%= f.select :point_of_design, [["0", "0"], ["1", "1"], ["2", "2"], ["3", "3"], ["4", "4"], ["5", "5"]], score_fields %>
     </div>
     <div>
       <%= f.label :description %><br>
