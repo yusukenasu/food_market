@@ -125,29 +125,32 @@ select{
   padding: 10px;
 }
 
-.dropdown-menu{
-  right: 0;
+.btn{
+  background-color: none;
+  border: none;
 }
 
-.dropdown-toggle{
-  background-color: rgba(255, 222, 75, 0.931);
-  border: 1px solid rgba(253, 75, 16, 0.852);
-  border-radius: 50px;
+.dropdown-menu{
+  right: 0;
 }
 
 .dropdown-toggle::after {
   display: none;
 }
 
-.btn-secondary:hover {
-  background-color: rgba(249, 229, 143, 0.907);
-  border: 1px solid rgba(253, 75, 16, 0.852);
-}
-
 .user_name{
   color: rgba(253, 75, 16, 0.852);
   text-align: center;
   border-bottom: 1px solid rgb(248, 111, 65);
+}
+
+.user_image{
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  object-fit: cover;
+  background-color: white;
+  border: 1px solid rgba(253, 75, 16, 0.852);
 }
 
 /* ヘッダー（タブレット用959px以下）*/
@@ -691,6 +694,7 @@ select{
 .mypage_user_image{
   max-width: 100px;
   height: auto;
+  border-radius: 10px;
 }
 
 .mypage_user_information_container div{
