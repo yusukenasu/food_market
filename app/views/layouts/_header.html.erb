@@ -13,10 +13,10 @@
     </div>
     <% if user_signed_in? %>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
-          <div class="user_image">
+        <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
+          <div>
             <% if current_user.image.present? %>
-              <%= image_tag current_user.image.variant(resize: "30x30") %>
+              <%= image_tag current_user.image, class: "user_image"%>
             <% else %>
               <%= image_tag 'user_img.png', size: "30x30" %>
             <% end %>
