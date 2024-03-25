@@ -1058,3 +1058,20 @@ select{
     font-size: 5px;
   }
 }
+
+/* フッター */
+.footer_area{
+  margin-bottom: 0;
+  width: 100%;
+  background-color: rgba(255, 162, 0, 0.746);
+}
+
+.footer_area ul{
+  margin: 40px 0 0 0;
+  padding: 15px 5px;
+}
+
+.footer_area li{
+  font-size: 6px;
+  list-style-type: none;
+}
