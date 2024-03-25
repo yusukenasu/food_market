@@ -434,7 +434,6 @@ select{
 
 .favorite_button_off{
   color: gray;
-  font-size: 15px;
 }
 
 .favorite_button_off :hover{
@@ -619,14 +618,10 @@ select{
     max-height: 100px;
   }
   
-  .favorite_button_on{
+  .favorites_of_product{
     font-size: 10px;
   }
-  
-  .favorite_button_off{
-    font-size: 10px;
-  }
-  
+
   .product_detail_container{
     width: 80%;
   }
@@ -658,7 +653,7 @@ select{
   }
 
   .product_starscore_container{
-    font-size: 5px;
+    font-size: 8px;
     width: 90%;
   }
 
@@ -667,7 +662,7 @@ select{
   }
 
   .contributor_user_rank{
-    font-size: 8px;
+    font-size: 10px;
   }
 
   .contributor_name{
@@ -1057,4 +1052,22 @@ select{
   .searched_contributor_name{
     font-size: 5px;
   }
+}
+
+/* フッター */
+.footer_area{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer_area ul{
+  margin-top: 40px;
+  padding: 15px 5px;
+}
+
+.footer_area li{
+  text-align: left;
+  font-size: 7px;
+  list-style-type: none;
 }
