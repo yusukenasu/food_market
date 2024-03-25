@@ -1056,17 +1056,18 @@ select{
 
 /* フッター */
 .footer_area{
-  margin-bottom: 0;
   width: 100%;
-  background-color: rgba(255, 162, 0, 0.746);
+  display: flex;
+  justify-content: center;
 }
 
 .footer_area ul{
-  margin: 40px 0 0 0;
+  margin-top: 40px;
   padding: 15px 5px;
 }
 
 .footer_area li{
-  font-size: 6px;
+  text-align: left;
+  font-size: 7px;
   list-style-type: none;
 }

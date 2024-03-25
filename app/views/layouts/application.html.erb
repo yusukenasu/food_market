@@ -9,28 +9,30 @@
     <%= javascript_importmap_tags %>
     <%= include_gon %>
   </head>
-  <header class="sticky-top">
-    <%= render "layouts/header" %>
-  </header>
   <body>
-    <div class="notice">
-      <% if flash[:notice].present? || flash[:alert].present? %>
-          <%= flash[:notice] || flash[:alert] %>
-      <% end %>
-    </div>
-    <%= yield %>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@rails/ujs@7.1.1/app/assets/javascripts/rails-ujs.min.js"></script>
+    <header class="sticky-top">
+      <%= render "layouts/header" %>
+    </header>
+    <main>
+      <div class="notice">
+        <% if flash[:notice].present? || flash[:alert].present? %>
+            <%= flash[:notice] || flash[:alert] %>
+        <% end %>
+      </div>
+      <%= yield %>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@rails/ujs@7.1.1/app/assets/javascripts/rails-ujs.min.js"></script>
+    </main>
+    <footer>
+      <div class="footer_area">
+        <ul>
+          <li>※投稿されるコンテンツには著作権が存在する場合があります。他人の著作物を無断で使用しないようにご注意ください。</li>
+          <li>※商標やロゴなどの使用に関しては、適切な権利者からの許可を得る必要があります。無断で商標を使用しないようお願いします。</li>
+          <li>※当サイトでは、不適切な内容を含む投稿は禁止されています。過剰な評価は避け商品を尊重するレビューを心がけてください。</li>
+        </ul>
+      </div>
+    </footer>
   </body>
-  <footer>
-    <div class="footer_area">
-      <ul>
-        <li>※投稿されるコンテンツには著作権が存在する場合があります。他人の著作物を無断で使用しないようにご注意ください。</li>
-        <li>※商標やロゴなどの使用に関しては、適切な権利者からの許可を得る必要があります。無断で商標を使用しないようお願いします。</li>
-        <li>※当サイトでは、不適切な内容を含む投稿は禁止されています。過剰な評価は避け商品を尊重するレビューを心がけてください。</li>
-      </ul>
-    </div>
-  </footer>
 </html>
